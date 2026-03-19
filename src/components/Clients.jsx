@@ -23,17 +23,16 @@ export default function Clients() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
         >
           <span className="section-label" style={{ justifyContent: 'center' }}>İş Ortaklarımız</span>
-          <p className="clients__subtitle">Güvenilir kurumlarla birlikte çalışıyoruz</p>
         </motion.div>
 
         <div className="clients__track">
           <motion.div
             className="clients__scroll"
-            animate={{ x: [0, -50 * clients.length * 2] }}
-            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+            animate={{ x: [0, -280 * clients.length] }}
+            transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
           >
             {[...clients, ...clients, ...clients, ...clients].map((client, i) => (
-              <div key={i} className="clients__logo glass-card">
+              <div key={i} className="clients__logo">
                 <span className="clients__logo-initial">{client.initial}</span>
                 <span className="clients__logo-name">{client.name}</span>
               </div>

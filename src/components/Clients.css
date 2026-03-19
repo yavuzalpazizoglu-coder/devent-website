@@ -8,11 +8,6 @@
   margin-bottom: 3rem;
 }
 
-.clients__subtitle {
-  font-size: 1rem;
-  color: var(--text-tertiary);
-}
-
 .clients__track {
   overflow: hidden;
   mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
@@ -21,7 +16,7 @@
 
 .clients__scroll {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   width: fit-content;
 }
 
@@ -33,24 +28,27 @@
   padding: 1.5rem 2.5rem;
   min-width: 160px;
   text-align: center;
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  transition: all var(--transition-fast);
 }
 
 .clients__logo:hover {
-  transform: none;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .clients__logo-initial {
   font-family: var(--font-primary);
-  font-size: 1.8rem;
-  font-weight: 800;
-  background: var(--gradient-accent);
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .clients__logo-name {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--text-tertiary);
   font-weight: 500;
   white-space: nowrap;

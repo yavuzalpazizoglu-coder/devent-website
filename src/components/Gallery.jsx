@@ -1,94 +1,96 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { HiX, HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import './Gallery.css';
 
-const images = [
-  { src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80', alt: 'Kongre Salonu' },
-  { src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=80', alt: 'Gala Yemeği' },
-  { src: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600&q=80', alt: 'Konferans' },
-  { src: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=80', alt: 'Sahne Performansı' },
-  { src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80', alt: 'Networking Etkinliği' },
-  { src: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80', alt: 'Sergi Alanı' },
+const projects = [
+  {
+    title: 'Global Kongre',
+    subtitle: 'Uluslararası Tıp Kongresi',
+    img: '/images/hero.png',
+    tag: 'Kongre',
+    year: '2024',
+  },
+  {
+    title: 'Gala Night',
+    subtitle: 'Yılın En Büyük Gala Yemeği',
+    img: '/images/gala.png',
+    tag: 'Sosyal',
+    year: '2024',
+  },
+  {
+    title: 'Tech Summit',
+    subtitle: 'İnovasyon & Teknoloji Zirvesi',
+    img: '/images/speaker.png',
+    tag: 'Konferans',
+    year: '2023',
+  },
+  {
+    title: 'Trade Expo',
+    subtitle: 'Uluslararası Ticaret Fuarı',
+    img: '/images/exhibition.png',
+    tag: 'Fuar',
+    year: '2023',
+  },
 ];
 
-export default function Gallery() {
+export default function Projects() {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
-  const [selectedIndex, setSelectedIndex] = useState(null);
-
-  const openLightbox = (i) => setSelectedIndex(i);
-  const closeLightbox = () => setSelectedIndex(null);
-  const prev = () => setSelectedIndex((i) => (i === 0 ? images.length - 1 : i - 1));
-  const next = () => setSelectedIndex((i) => (i === images.length - 1 ? 0 : i + 1));
 
   return (
-    <section id="gallery" className="gallery section-padding">
+    <section id="projects" className="projects section-padding">
       <div className="container" ref={ref}>
-        <div className="gallery__header">
+        {/* Header */}
+        <div className="projects__header">
           <motion.span
             className="section-label"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
           >
-            Galeri
+            Projelerimiz
           </motion.span>
           <motion.h2
             className="section-title"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.1, duration: 0.8 }}
           >
-            Etkinliklerimizden Kareler
+            Öne Çıkan
+            <br />
+            Etkinlikler
           </motion.h2>
         </div>
 
-        <div className="gallery__grid">
-          {images.map((img, i) => (
-            <motion.div
-              key={i}
-              className="gallery__item"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: i * 0.1 + 0.2, duration: 0.5 }}
-              onClick={() => openLightbox(i)}
+        {/* Asymmetric grid — like the reference */}
+        <div className="projects__grid">
+          {projects.map((project, i) => (
+            <motion.article
+              key={project.title}
+              className={`projects__card projects__card--${i + 1}`}
+              initial={{ opacity: 0, y: 60, scale: 0.95 }}
+              animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{ delay: i * 0.15 + 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <img src={img.src} alt={img.alt} loading="lazy" />
-              <div className="gallery__item-overlay">
-                <span className="gallery__item-label">{img.alt}</span>
+              <div className="projects__card-img magnetic-img">
+                <img src={project.img} alt={project.title} loading="lazy" />
+                <div className="projects__card-overlay">
+                  <span className="projects__card-view">Detay →</span>
+                </div>
               </div>
-            </motion.div>
+              <div className="projects__card-info">
+                <div className="projects__card-meta">
+                  <span className="projects__card-tag">{project.tag}</span>
+                  <span className="projects__card-year">{project.year}</span>
+                </div>
+                <h3 className="projects__card-title">{project.title}</h3>
+                <p className="projects__card-subtitle">{project.subtitle}</p>
+              </div>
+            </motion.article>
           ))}
         </div>
       </div>
 
-      {/* Lightbox */}
-      <AnimatePresence>
-        {selectedIndex !== null && (
-          <motion.div
-            className="lightbox"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={closeLightbox}
-          >
-            <button className="lightbox__close" onClick={closeLightbox}><HiX /></button>
-            <button className="lightbox__nav lightbox__nav--prev" onClick={(e) => { e.stopPropagation(); prev(); }}><HiChevronLeft /></button>
-            <button className="lightbox__nav lightbox__nav--next" onClick={(e) => { e.stopPropagation(); next(); }}><HiChevronRight /></button>
-            <motion.img
-              key={selectedIndex}
-              src={images[selectedIndex].src}
-              alt={images[selectedIndex].alt}
-              className="lightbox__image"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              onClick={(e) => e.stopPropagation()}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Big background text */}
+      <div className="projects__bg-text stroke-text">WORKS</div>
     </section>
   );
 }

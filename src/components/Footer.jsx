@@ -18,9 +18,23 @@ const footerLinks = [
 export default function Footer() {
   return (
     <footer className="footer">
+      {/* Big CTA Section */}
+      <div className="footer__cta-section">
+        <div className="container">
+          <div className="footer__cta-inner">
+            <h2 className="footer__cta-title">
+              Hayalinizi<br />
+              <span>Gerçeğe</span> Dönüştürelim
+            </h2>
+            <a href="#contact" className="btn-primary" onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
+              <span>Projenizi Başlatın →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div className="container">
         <div className="footer__top">
-          {/* Brand */}
           <div className="footer__brand">
             <a href="#hero" className="footer__logo">
               <div className="footer__logo-icon"><span>D</span></div>
@@ -28,25 +42,16 @@ export default function Footer() {
             </a>
             <p className="footer__brand-desc">
               Etkinlik ve kongre yönetiminde Türkiye'nin lider markası.
-              Her zaman planladığınız gibi!
             </p>
             <div className="footer__social">
               {socialLinks.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  className="footer__social-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                >
+                <a key={s.label} href={s.href} className="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label={s.label}>
                   {s.icon}
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Links */}
           {footerLinks.map((col) => (
             <div key={col.title} className="footer__col">
               <h4 className="footer__col-title">{col.title}</h4>
@@ -60,12 +65,8 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p>
-            © {new Date().getFullYear()} D Event Turizm Organizasyon Hizmetleri A.Ş. Tüm hakları saklıdır.
-          </p>
-          <p className="footer__credit">
-            Made with <HiHeart className="footer__heart" /> in İstanbul
-          </p>
+          <p>© {new Date().getFullYear()} D Event Turizm Organizasyon A.Ş.</p>
+          <p className="footer__credit">Made with <HiHeart className="footer__heart" /> in İstanbul</p>
         </div>
       </div>
     </footer>

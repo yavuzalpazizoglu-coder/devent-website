@@ -1,50 +1,26 @@
 .stats {
+  background: var(--bg-secondary);
   position: relative;
   overflow: hidden;
-}
-
-.stats__bg-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(0, 212, 255, 0.06) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.stats__header {
-  text-align: center;
-  margin-bottom: 3.5rem;
-}
-
-.stats__header .section-label {
-  justify-content: center;
-}
-
-.stats__header .section-title {
-  margin: 0 auto;
 }
 
 .stats__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
-.stats__card {
+.stats__item {
   text-align: center;
-  padding: 2.5rem 1.5rem;
+  padding: 2.5rem 1rem;
   position: relative;
-  overflow: hidden;
 }
 
-.stats__card-number {
+.stats__item-number {
   font-family: var(--font-primary);
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 900;
-  background: var(--gradient-accent);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -52,33 +28,34 @@
   margin-bottom: 0.75rem;
 }
 
-.stats__card-label {
-  font-size: 1.1rem;
+.stats__item-label {
+  font-family: var(--font-primary);
+  font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
-.stats__card-desc {
-  font-size: 0.85rem;
+.stats__item-desc {
+  font-size: 0.8rem;
   color: var(--text-tertiary);
 }
 
-.stats__card-line {
+.stats__item-line {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: var(--gradient-primary);
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
   border-radius: 2px;
   opacity: 0;
   transition: all var(--transition-smooth);
 }
 
-.stats__card:hover .stats__card-line {
+.stats__item:hover .stats__item-line {
   opacity: 1;
-  width: 100px;
+  width: 80px;
 }
 
 @media (max-width: 900px) {

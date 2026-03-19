@@ -1,129 +1,131 @@
-import { motion } from 'framer-motion';
-import { HiArrowDown, HiPlay } from 'react-icons/hi';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import './Hero.css';
 
 export default function Hero() {
-  const scrollToAbout = (e) => {
-    e.preventDefault();
-    document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToContact = (e) => {
-    e.preventDefault();
-    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
+  const imgY = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const textY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   return (
-    <section id="hero" className="hero">
-      {/* Background layers */}
-      <div className="hero__bg">
-        <div className="hero__bg-image" />
-        <div className="hero__bg-overlay" />
-        <div className="hero__bg-gradient" />
-      </div>
+    <section id="hero" ref={ref} className="hero">
+      {/* Floating decorative elements */}
+      <div className="hero__deco hero__deco--1" />
+      <div className="hero__deco hero__deco--2" />
+      <div className="hero__deco hero__deco--3" />
 
-      {/* Floating particles */}
-      <div className="hero__particles">
-        {[...Array(20)].map((_, i) => (
+      {/* Giant stroke text background */}
+      <motion.div className="hero__stroke-text" style={{ y: imgY }}>
+        <span>EVENT</span>
+      </motion.div>
+
+      <div className="hero__content">
+        {/* Left column — Text */}
+        <motion.div className="hero__text" style={{ y: textY, opacity }}>
           <motion.div
-            key={i}
-            className="hero__particle"
-            initial={{
-              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
-              y: Math.random() * 800,
-              opacity: 0,
-            }}
-            animate={{
-              y: [null, -100, 800],
-              opacity: [0, 0.6, 0],
-            }}
-            transition={{
-              duration: Math.random() * 15 + 10,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-              ease: 'linear',
-            }}
-            style={{
-              width: Math.random() * 4 + 1,
-              height: Math.random() * 4 + 1,
-            }}
-          />
-        ))}
-      </div>
+            className="hero__tag"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            <span className="hero__tag-dot" />
+            Etkinlik & Kongre Yönetimi
+          </motion.div>
 
-      {/* Content */}
-      <div className="hero__content container">
-        <motion.div
-          className="hero__badge"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          <span className="hero__badge-dot" />
-          Türkiye'nin Lider Etkinlik Yönetimi Şirketi
+          <motion.h1
+            className="hero__title"
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            Her Zaman
+            <br />
+            <span className="hero__title-accent">Planladığınız</span>
+            <br />
+            Gibi!
+          </motion.h1>
+
+          <motion.p
+            className="hero__desc"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
+            872+ etkinlik ve 868+ kongre deneyimimizle,
+            organizasyonlarınızı mükemmelliğe taşıyoruz.
+          </motion.p>
+
+          <motion.div
+            className="hero__ctas"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+          >
+            <a href="#contact" className="btn-primary" onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
+              <span>Teklif Alın</span>
+            </a>
+            <a href="#projects" className="btn-outline" onClick={(e) => { e.preventDefault(); document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' }); }}>
+              Projelerimiz
+            </a>
+          </motion.div>
+
+          {/* Mini stats */}
+          <motion.div
+            className="hero__stats"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+          >
+            <div className="hero__stat">
+              <span className="hero__stat-num">872+</span>
+              <span className="hero__stat-label">Etkinlik</span>
+            </div>
+            <div className="hero__stat-divider" />
+            <div className="hero__stat">
+              <span className="hero__stat-num">25+</span>
+              <span className="hero__stat-label">Yıl</span>
+            </div>
+            <div className="hero__stat-divider" />
+            <div className="hero__stat">
+              <span className="hero__stat-num">100%</span>
+              <span className="hero__stat-label">Memnuniyet</span>
+            </div>
+          </motion.div>
         </motion.div>
 
-        <motion.h1
-          className="hero__title"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-        >
-          Her Zaman
-          <br />
-          <span className="hero__title-gradient">Planladığınız Gibi!</span>
-        </motion.h1>
+        {/* Right column — Overlapping images */}
+        <div className="hero__visuals">
+          <motion.div
+            className="hero__img hero__img--main magnetic-img"
+            style={{ y: imgY, scale: imgScale }}
+            initial={{ opacity: 0, scale: 0.85, rotate: 2 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ delay: 0.3, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <img src="/images/hero.png" alt="D Event Kongre" />
+          </motion.div>
 
-        <motion.p
-          className="hero__description"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.6 }}
-        >
-          872+ etkinlik ve 868+ kongre deneyimimizle, organizasyonlarınızı
-          mükemmelliğe taşıyoruz. Sıfır hata prensibiyle, unutulmaz deneyimler
-          yaratıyoruz.
-        </motion.p>
+          <motion.div
+            className="hero__img hero__img--floating magnetic-img"
+            initial={{ opacity: 0, x: 60, y: 40 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ delay: 0.7, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <img src="/images/gala.png" alt="D Event Gala" />
+          </motion.div>
 
-        <motion.div
-          className="hero__actions"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.6 }}
-        >
-          <a href="#contact" className="btn-primary hero__btn" onClick={scrollToContact}>
-            Teklif Alın
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </a>
-          <a href="#about" className="btn-outline hero__btn" onClick={scrollToAbout}>
-            <HiPlay />
-            Bizi Tanıyın
-          </a>
-        </motion.div>
-
-        <motion.div
-          className="hero__stats-row"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1, duration: 0.6 }}
-        >
-          <div className="hero__stat">
-            <span className="hero__stat-number">872+</span>
-            <span className="hero__stat-label">Etkinlik</span>
-          </div>
-          <div className="hero__stat-divider" />
-          <div className="hero__stat">
-            <span className="hero__stat-number">868+</span>
-            <span className="hero__stat-label">Kongre</span>
-          </div>
-          <div className="hero__stat-divider" />
-          <div className="hero__stat">
-            <span className="hero__stat-number">25+</span>
-            <span className="hero__stat-label">Yıl Deneyim</span>
-          </div>
-        </motion.div>
+          <motion.div
+            className="hero__img hero__img--small magnetic-img"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 1 }}
+          >
+            <img src="/images/abstract.png" alt="D Event Brand" />
+          </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
@@ -132,16 +134,15 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        onClick={scrollToAbout}
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <HiArrowDown />
-        </motion.div>
-        <span>Keşfedin</span>
+        <div className="hero__scroll-line" />
+        <span>Kaydırın</span>
       </motion.div>
+
+      {/* Vertical side text */}
+      <div className="vertical-text" style={{ right: '2rem', top: '50%', transform: 'translateY(-50%)' }}>
+        D EVENT — SİNCE 1999
+      </div>
     </section>
   );
 }

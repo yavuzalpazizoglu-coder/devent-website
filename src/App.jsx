@@ -1,9 +1,10 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Marquee from './components/Marquee';
 import About from './components/About';
 import Services from './components/Services';
 import Stats from './components/Stats';
-import Gallery from './components/Gallery';
+import Projects from './components/Gallery';
 import Clients from './components/Clients';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -14,10 +15,11 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <Marquee />
         <About />
         <Services />
         <Stats />
-        <Gallery />
+        <Projects />
         <Clients />
         <Contact />
       </main>
