@@ -45,7 +45,7 @@ export default function Services() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            <img src="/images/exhibition.png" alt="Etkinlik ve Kongre" className="services__image" loading="lazy" />
+            <img src="http://devent.com.tr/wp-content/uploads/2025/12/kongre-etkinlik-gorsel.png" alt="Etkinlik ve Kongre" className="services__image" loading="lazy" />
           </motion.div>
 
           <div className="services__grid">

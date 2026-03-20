@@ -91,8 +91,14 @@ export default function Navbar() {
                 <span className="navbar__lang-divider">/</span>
                 <span className={lang === 'en' ? 'navbar__lang-active' : ''}>EN</span>
               </button>
-              <a href="#contact" className="btn-primary" style={{ flex: 1, justifyContent: 'center' }} onClick={(e) => { e.preventDefault(); scrollTo('#contact'); }}>
-                {t('nav.cta')}
+              <a
+                href="https://dijitalislemmerkezi.com/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary navbar__cta"
+                style={{ flex: 1, justifyContent: 'center' }}
+              >
+                {t('nav.digitalCenter')}
               </a>
             </div>
           </motion.div>

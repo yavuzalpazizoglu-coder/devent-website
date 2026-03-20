@@ -49,7 +49,7 @@ export default function Projects() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <img src="/images/gala.png" alt="Why Us" className="projects__image" loading="lazy" />
+            <img src="http://devent.com.tr/wp-content/uploads/2025/12/row-bg-4.jpg" alt="Why Us" className="projects__image" loading="lazy" />
           </motion.div>
         </div>
       </div>

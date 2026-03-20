@@ -13,7 +13,7 @@ export default function About() {
         <motion.div className="about__layout" initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.8 }}>
           <div className="about__visual">
             <div className="about__img-wrapper">
-              <img src="/images/speaker.png" alt="Event" className="about__img" loading="lazy" />
+              <img src="http://devent.com.tr/wp-content/uploads/2025/12/devent-hakkimizda-2.png" alt="d Event Yaklaşımı" className="about__image" loading="lazy" />
               <div className="about__badge">
                 <span className="about__badge-number">13+</span>
                 <span className="about__badge-text">{t('about.badge')}</span>

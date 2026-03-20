@@ -6,7 +6,7 @@ export const translations = {
     'nav.projects': 'Projeler',
     'nav.contact': 'İletişim',
     'nav.cta': 'Teklif Alın',
-
+    'nav.digitalCenter': 'Dijital İşlem Merkezi',
     // Hero
     'hero.title1': 'Her Zaman',
     'hero.titleAccent': 'Planladığınız',
@@ -132,7 +132,7 @@ export const translations = {
     'nav.projects': 'Why Us',
     'nav.contact': 'Contact',
     'nav.cta': 'Get a Quote',
-
+    'nav.digitalCenter': 'Digital Center',
     // Hero
     'hero.title1': 'Always',
     'hero.titleAccent': 'As You',
