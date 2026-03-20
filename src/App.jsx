@@ -5,8 +5,8 @@ import About from './components/About';
 import Services from './components/Services';
 import Workflow from './components/Workflow';
 import Stats from './components/Stats';
+import References from './components/References';
 import Projects from './components/Gallery';
-import Clients from './components/Clients';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -20,8 +20,8 @@ export default function App() {
         <Services />
         <Workflow />
         <Stats />
+        <References />
         <Projects />
-        <Clients />
         <Contact />
       </main>
       <Footer />

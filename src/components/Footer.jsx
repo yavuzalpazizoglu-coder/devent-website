@@ -62,7 +62,7 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p>© {new Date().getFullYear()} D Event Turizm Organizasyon A.Ş.</p>
+          <p>© {new Date().getFullYear()} {t('footer.company')}</p>
           <p className="footer__credit">{t('footer.credit')} <HiHeart className="footer__heart" /> in İstanbul</p>
         </div>
       </div>

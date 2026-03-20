@@ -30,7 +30,7 @@ export default function Stats() {
   const stats = [
     { number: 872, suffix: '+', label: t('stats.events'), desc: t('stats.events.desc') },
     { number: 868, suffix: '+', label: t('stats.congress'), desc: t('stats.congress.desc') },
-    { number: 25, suffix: '+', label: t('stats.years'), desc: t('stats.years.desc') },
+    { number: 13, suffix: '+', label: t('stats.years'), desc: t('stats.years.desc') },
     { number: 100, suffix: '%', label: t('stats.satisfaction'), desc: t('stats.satisfaction.desc') },
   ];
 

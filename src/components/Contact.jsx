@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { HiLocationMarker, HiPhone, HiMail } from 'react-icons/hi';
+import { HiLocationMarker, HiPhone, HiMail, HiGlobe } from 'react-icons/hi';
 import { useLang } from '../context/LanguageContext';
 import './Contact.css';
 
@@ -15,6 +15,7 @@ export default function Contact() {
     { icon: <HiLocationMarker />, label: t('contact.address.label'), value: t('contact.address'), color: '#e0334c' },
     { icon: <HiPhone />, label: t('contact.phone.label'), value: t('contact.phone'), color: '#00aeef' },
     { icon: <HiMail />, label: t('contact.email.label'), value: t('contact.email'), color: '#f5a623' },
+    { icon: <HiGlobe />, label: t('contact.web.label'), value: t('contact.web'), color: '#22c55e' },
   ];
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });

@@ -34,7 +34,7 @@ export default function About() {
             <img src="/images/speaker.png" alt="Speaker" className="about__img about__img--main" loading="lazy" />
             <img src="/images/exhibition.png" alt="Exhibition" className="about__img about__img--overlay" loading="lazy" />
             <div className="about__badge">
-              <span className="about__badge-number">25+</span>
+              <span className="about__badge-number">13+</span>
               <span className="about__badge-text">{t('about.badge')}</span>
             </div>
           </div>
