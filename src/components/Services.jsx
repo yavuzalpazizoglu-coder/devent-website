@@ -38,22 +38,33 @@ export default function Services() {
           </p>
         </motion.div>
 
-        <div className="services__grid">
-          {services.map((svc, i) => (
-            <motion.div
-              key={svc.title}
-              className="services__card glass-card"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.08 + 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <div className="services__card-icon" style={{ color: svc.color, background: `${svc.color}12` }}>
-                {svc.icon}
-              </div>
-              <h3 className="services__card-title">{svc.title}</h3>
-              <p className="services__card-desc">{svc.desc}</p>
-            </motion.div>
-          ))}
+        <div className="services__layout">
+          <motion.div 
+            className="services__image-container"
+            initial={{ opacity: 0, x: -40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            <img src="/images/exhibition.png" alt="Etkinlik ve Kongre" className="services__image" loading="lazy" />
+          </motion.div>
+
+          <div className="services__grid">
+            {services.map((svc, i) => (
+              <motion.div
+                key={svc.title}
+                className="services__card glass-card"
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: i * 0.08 + 0.3, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <div className="services__card-icon" style={{ color: svc.color, background: `${svc.color}12` }}>
+                  {svc.icon}
+                </div>
+                <h3 className="services__card-title">{svc.title}</h3>
+                <p className="services__card-desc">{svc.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

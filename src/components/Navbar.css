@@ -28,13 +28,14 @@
 }
 
 .navbar__logo-img {
-  height: 60px;
+  height: 85px;
   width: auto;
-  transition: height var(--transition-smooth);
+  filter: brightness(1.2) contrast(1.1) drop-shadow(0 4px 12px rgba(255, 255, 255, 0.15));
+  transition: all var(--transition-smooth);
 }
 
 .navbar--scrolled .navbar__logo-img {
-  height: 44px;
+  height: 60px;
 }
 
 .navbar__links {
@@ -44,8 +45,8 @@
 }
 
 .navbar__link {
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 1.05rem;
+  font-weight: 600;
   color: var(--text-secondary);
   transition: color var(--transition-fast);
   position: relative;
@@ -80,14 +81,14 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 0.45rem 0.75rem;
+  padding: 0.55rem 0.85rem;
   background: rgba(255,255,255,0.04);
   border: 1px solid var(--border-glass);
   border-radius: 8px;
   color: var(--text-tertiary);
   font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 700;
   letter-spacing: 0.05em;
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -106,8 +107,8 @@
 }
 
 .navbar__cta {
-  padding: 0.65rem 1.5rem;
-  font-size: 0.8rem;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.95rem;
 }
 
 .navbar__toggle {

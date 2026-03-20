@@ -24,22 +24,33 @@ export default function Projects() {
           <p className="section-subtitle" style={{ textAlign: 'center', maxWidth: '500px', margin: '0 auto' }}>{t('projects.desc')}</p>
         </motion.div>
 
-        <div className="projects__grid">
-          {values.map((val, i) => (
-            <motion.div
-              key={val.key}
-              className="projects__card"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.1 + 0.2, duration: 0.6 }}
-            >
-              <div className="projects__card-icon" style={{ color: val.color, background: `${val.color}12` }}>
-                {val.icon}
-              </div>
-              <h3 className="projects__card-title">{t(`${val.key}.title`)}</h3>
-              <p className="projects__card-desc">{t(`${val.key}.desc`)}</p>
-            </motion.div>
-          ))}
+        <div className="projects__layout">
+          <div className="projects__grid">
+            {values.map((val, i) => (
+              <motion.div
+                key={val.key}
+                className="projects__card"
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: i * 0.1 + 0.2, duration: 0.6 }}
+              >
+                <div className="projects__card-icon" style={{ color: val.color, background: `${val.color}12` }}>
+                  {val.icon}
+                </div>
+                <h3 className="projects__card-title">{t(`${val.key}.title`)}</h3>
+                <p className="projects__card-desc">{t(`${val.key}.desc`)}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div 
+            className="projects__image-container"
+            initial={{ opacity: 0, x: 40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            <img src="/images/gala.png" alt="Why Us" className="projects__image" loading="lazy" />
+          </motion.div>
         </div>
       </div>
     </section>
