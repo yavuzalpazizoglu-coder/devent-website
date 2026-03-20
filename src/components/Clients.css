@@ -1,55 +1,52 @@
 .clients {
   background: var(--bg-secondary);
-  overflow: hidden;
 }
 
 .clients__header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
-.clients__track {
-  overflow: hidden;
-  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+.clients__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.25rem;
 }
 
-.clients__scroll {
-  display: flex;
-  gap: 2rem;
-  width: fit-content;
-}
-
-.clients__logo {
+.clients__item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  padding: 1.5rem 2.5rem;
-  min-width: 160px;
+  padding: 1.5rem 1rem;
   text-align: center;
-  border: 1px solid var(--border-glass);
-  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
   transition: all var(--transition-fast);
 }
 
-.clients__logo:hover {
-  background: rgba(255, 255, 255, 0.03);
+.clients__item:hover {
+  border-color: var(--border-hover);
+  background: rgba(255,255,255,0.02);
 }
 
-.clients__logo-initial {
-  font-family: var(--font-primary);
-  font-size: 2rem;
-  font-weight: 900;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.clients__item-initial {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
 }
 
-.clients__logo-name {
-  font-size: 0.72rem;
+.clients__item-name {
+  font-size: 0.7rem;
   color: var(--text-tertiary);
   font-weight: 500;
-  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .clients__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .clients__grid { grid-template-columns: repeat(2, 1fr); }
 }

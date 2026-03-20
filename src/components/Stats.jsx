@@ -42,16 +42,15 @@ export default function Stats() {
             <motion.div
               key={stat.label}
               className="stats__item"
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.12 + 0.2, duration: 0.7 }}
+              transition={{ delay: i * 0.1 + 0.2, duration: 0.6 }}
             >
               <div className="stats__item-number">
                 <Counter target={stat.number} suffix={stat.suffix} inView={inView} />
               </div>
               <h3 className="stats__item-label">{stat.label}</h3>
               <p className="stats__item-desc">{stat.desc}</p>
-              <div className="stats__item-line" />
             </motion.div>
           ))}
         </div>

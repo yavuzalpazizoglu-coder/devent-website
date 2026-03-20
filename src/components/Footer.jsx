@@ -16,29 +16,27 @@ const footerLinks = [
 ];
 
 export default function Footer() {
+  const scrollTo = (href) => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+
   return (
     <footer className="footer">
-      {/* Big CTA Section */}
-      <div className="footer__cta-section">
-        <div className="container">
-          <div className="footer__cta-inner">
-            <h2 className="footer__cta-title">
-              Hayalinizi<br />
-              <span>Gerçeğe</span> Dönüştürelim
-            </h2>
-            <a href="#contact" className="btn-primary" onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
-              <span>Projenizi Başlatın →</span>
-            </a>
-          </div>
+      {/* CTA */}
+      <div className="footer__cta">
+        <div className="container footer__cta-inner">
+          <h2 className="footer__cta-title">
+            Hayalinizi <span>Gerçeğe</span> Dönüştürelim
+          </h2>
+          <a href="#contact" className="btn-primary" onClick={(e) => { e.preventDefault(); scrollTo('#contact'); }}>
+            <span>Projenizi Başlatın →</span>
+          </a>
         </div>
       </div>
 
       <div className="container">
         <div className="footer__top">
           <div className="footer__brand">
-            <a href="#hero" className="footer__logo">
-              <div className="footer__logo-icon"><span>D</span></div>
-              <span className="footer__logo-text">event</span>
+            <a href="#" className="footer__logo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+              <img src="/images/logo.png" alt="D Event" className="footer__logo-img" />
             </a>
             <p className="footer__brand-desc">
               Etkinlik ve kongre yönetiminde Türkiye'nin lider markası.

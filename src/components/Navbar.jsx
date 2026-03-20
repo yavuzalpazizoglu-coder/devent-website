@@ -1,110 +1,88 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import './Navbar.css';
 
 const links = [
   { label: 'Hakkımızda', href: '#about' },
-  { label: 'Projeler', href: '#projects' },
   { label: 'Hizmetler', href: '#services' },
+  { label: 'Projeler', href: '#projects' },
   { label: 'İletişim', href: '#contact' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleClick = (e, href) => {
-    e.preventDefault();
-    setMobileOpen(false);
+  const scrollTo = (href) => {
+    setMenuOpen(false);
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <motion.header
+    <motion.nav
       className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
-      <div className="navbar__inner">
-        <a href="#hero" className="navbar__logo" onClick={(e) => handleClick(e, '#hero')}>
-          <span className="navbar__logo-d">D</span>
-          <span className="navbar__logo-text">event</span>
+      <div className="container navbar__inner">
+        <a href="#" className="navbar__logo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+          <img src="/images/logo.png" alt="D Event" className="navbar__logo-img" />
         </a>
 
-        <nav className="navbar__links">
-          {links.map((link, i) => (
-            <motion.a
-              key={link.label}
-              href={link.href}
-              className="navbar__link"
-              onClick={(e) => handleClick(e, link.href)}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * i + 0.3 }}
-            >
-              <span className="navbar__link-num">0{i + 1}</span>
+        <div className="navbar__links">
+          {links.map((link) => (
+            <a key={link.label} href={link.href} className="navbar__link" onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}>
               {link.label}
-            </motion.a>
+            </a>
           ))}
-        </nav>
+        </div>
 
-        <motion.a
-          href="#contact"
-          className="navbar__cta"
-          onClick={(e) => handleClick(e, '#contact')}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Teklif Alın
-        </motion.a>
+        <a href="#contact" className="navbar__cta btn-primary" onClick={(e) => { e.preventDefault(); scrollTo('#contact'); }}>
+          <span>Teklif Alın</span>
+        </a>
 
-        <button
-          className={`navbar__burger ${mobileOpen ? 'navbar__burger--open' : ''}`}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          <span />
-          <span />
+        <button className="navbar__toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
+          {menuOpen ? <HiX /> : <HiMenuAlt3 />}
         </button>
       </div>
 
+      {/* Mobile menu */}
       <AnimatePresence>
-        {mobileOpen && (
+        {menuOpen && (
           <motion.div
             className="navbar__mobile"
-            initial={{ clipPath: 'circle(0% at calc(100% - 40px) 40px)' }}
-            animate={{ clipPath: 'circle(150% at calc(100% - 40px) 40px)' }}
-            exit={{ clipPath: 'circle(0% at calc(100% - 40px) 40px)' }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
           >
-            <div className="navbar__mobile-bg-text">MENU</div>
             {links.map((link, i) => (
               <motion.a
                 key={link.label}
                 href={link.href}
                 className="navbar__mobile-link"
-                onClick={(e) => handleClick(e, link.href)}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 * i + 0.3, duration: 0.5 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.06 }}
+                onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}
               >
-                <span className="navbar__mobile-num">0{i + 1}</span>
                 {link.label}
               </motion.a>
             ))}
+            <a href="#contact" className="btn-primary" style={{ marginTop: '1rem', width: '100%', justifyContent: 'center' }} onClick={(e) => { e.preventDefault(); scrollTo('#contact'); }}>
+              Teklif Alın
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </motion.nav>
   );
 }

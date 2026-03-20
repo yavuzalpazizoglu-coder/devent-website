@@ -25,19 +25,19 @@ export default function Clients() {
           <span className="section-label" style={{ justifyContent: 'center' }}>İş Ortaklarımız</span>
         </motion.div>
 
-        <div className="clients__track">
-          <motion.div
-            className="clients__scroll"
-            animate={{ x: [0, -280 * clients.length] }}
-            transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-          >
-            {[...clients, ...clients, ...clients, ...clients].map((client, i) => (
-              <div key={i} className="clients__logo">
-                <span className="clients__logo-initial">{client.initial}</span>
-                <span className="clients__logo-name">{client.name}</span>
-              </div>
-            ))}
-          </motion.div>
+        <div className="clients__grid">
+          {clients.map((c, i) => (
+            <motion.div
+              key={c.name}
+              className="clients__item"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: i * 0.08 + 0.2, duration: 0.5 }}
+            >
+              <span className="clients__item-initial">{c.initial}</span>
+              <span className="clients__item-name">{c.name}</span>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
