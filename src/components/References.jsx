@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { HiOfficeBuilding, HiPresentationChartBar, HiGlobe, HiLocationMarker } from 'react-icons/hi';
 import { useLang } from '../context/LanguageContext';
 import './References.css';
 
 const stats = [
-  { key: 'congress', num: 868, color: '#f5a623', icon: '🏛️' },
-  { key: 'events', num: 872, color: '#00aeef', icon: '🎪' },
-  { key: 'international', num: 45, color: '#e0334c', icon: '🌍' },
-  { key: 'cities', num: 30, color: '#22c55e', icon: '📍' },
+  { key: 'congress', num: 868, color: '#f5a623', icon: <HiOfficeBuilding /> },
+  { key: 'events', num: 872, color: '#00aeef', icon: <HiPresentationChartBar /> },
+  { key: 'international', num: 45, color: '#e0334c', icon: <HiGlobe /> },
+  { key: 'cities', num: 30, color: '#22c55e', icon: <HiLocationMarker /> },
 ];
 
 export default function References() {
@@ -32,12 +33,11 @@ export default function References() {
               animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ delay: i * 0.1 + 0.2, duration: 0.6 }}
             >
-              <div className="references__card-ring" style={{ borderColor: stat.color }}>
-                <span className="references__card-icon">{stat.icon}</span>
+              <div className="references__card-icon" style={{ color: stat.color, background: `${stat.color}12` }}>
+                {stat.icon}
               </div>
               <span className="references__card-num" style={{ color: stat.color }}>{stat.num}+</span>
               <span className="references__card-label">{t(`ref.${stat.key}`)}</span>
-              <div className="references__card-bar" style={{ background: stat.color }} />
             </motion.div>
           ))}
         </div>

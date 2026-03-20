@@ -22,24 +22,36 @@
   overflow: hidden;
 }
 
+.references__card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity var(--transition-smooth);
+}
+
 .references__card:hover {
   border-color: var(--border-hover);
   transform: translateY(-4px);
 }
 
-.references__card-ring {
-  width: 72px;
-  height: 72px;
-  border: 2px solid;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.25rem;
+.references__card:hover::after {
+  opacity: 0.3;
 }
 
 .references__card-icon {
-  font-size: 1.6rem;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  font-size: 1.4rem;
+  margin: 0 auto 1.25rem;
 }
 
 .references__card-num {
@@ -54,20 +66,6 @@
   font-size: 0.85rem;
   color: var(--text-tertiary);
   font-weight: 500;
-}
-
-.references__card-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  opacity: 0;
-  transition: opacity var(--transition-smooth);
-}
-
-.references__card:hover .references__card-bar {
-  opacity: 1;
 }
 
 @media (max-width: 768px) {
