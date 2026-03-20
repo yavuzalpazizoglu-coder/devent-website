@@ -4,7 +4,6 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import Workflow from './components/Workflow';
-import Stats from './components/Stats';
 import References from './components/References';
 import Projects from './components/Gallery';
 import Contact from './components/Contact';
@@ -19,7 +18,6 @@ export default function App() {
         <About />
         <Services />
         <Workflow />
-        <Stats />
         <References />
         <Projects />
         <Contact />

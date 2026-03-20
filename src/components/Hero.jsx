@@ -51,8 +51,8 @@ export default function Hero() {
           </div>
           <div className="hero__stat-divider" />
           <div className="hero__stat">
-            <span className="hero__stat-number">13+</span>
-            <span className="hero__stat-label">{t('hero.stat.years')}</span>
+            <span className="hero__stat-number">868+</span>
+            <span className="hero__stat-label">{t('hero.stat.congress')}</span>
           </div>
           <div className="hero__stat-divider" />
           <div className="hero__stat">

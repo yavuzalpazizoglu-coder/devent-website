@@ -1,197 +1,81 @@
 .references {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
 }
 
 .references__header {
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
-/* Summary Cards */
-.references__summary {
+.references__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-bottom: 3rem;
+  gap: 1.5rem;
 }
 
-.references__summary-card {
-  padding: 1.5rem;
+.references__card {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
   border: 1px solid var(--border-subtle);
-  border-radius: 14px;
+  border-radius: 16px;
+  transition: all var(--transition-smooth);
   position: relative;
   overflow: hidden;
-  transition: all var(--transition-smooth);
 }
 
-.references__summary-card:hover {
+.references__card:hover {
   border-color: var(--border-hover);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
 }
 
-.references__summary-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  border-radius: 14px 14px 0 0;
+.references__card-ring {
+  width: 72px;
+  height: 72px;
+  border: 2px solid;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
 }
 
-.references__summary-number {
+.references__card-icon {
+  font-size: 1.6rem;
+}
+
+.references__card-num {
   display: block;
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 0.25rem;
 }
 
-.references__summary-label {
-  font-size: 0.8rem;
-  color: var(--text-tertiary);
-  font-weight: 500;
-}
-
-/* Chart */
-.references__chart {
-  border: 1px solid var(--border-subtle);
-  border-radius: 16px;
-  padding: 2rem 2rem 1.5rem;
-}
-
-.references__chart-title {
-  font-family: var(--font-heading);
+.references__card-label {
   font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.references__bars {
-  display: flex;
-  align-items: flex-end;
-  gap: 0.5rem;
-  height: 220px;
-  padding-bottom: 0.5rem;
-}
-
-.references__bar-group {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  justify-content: flex-end;
-  position: relative;
-  cursor: pointer;
-}
-
-.references__bar-group--active .references__bar-track {
-  opacity: 1;
-  filter: brightness(1.2);
-}
-
-.references__bar-track {
-  width: 100%;
-  max-width: 36px;
-  border-radius: 6px 6px 2px 2px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  opacity: 0.75;
-  transition: all var(--transition-fast);
-}
-
-.references__bar-group:hover .references__bar-track {
-  opacity: 1;
-}
-
-.references__bar-congress {
-  background: #f5a623;
-  width: 100%;
-}
-
-.references__bar-events {
-  background: #00aeef;
-  width: 100%;
-}
-
-.references__bar-year {
-  margin-top: 0.5rem;
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  letter-spacing: 0.03em;
-}
-
-.references__bar-tooltip {
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-glass);
-  border-radius: 10px;
-  padding: 0.5rem 0.75rem;
-  white-space: nowrap;
-  z-index: 10;
-  text-align: center;
-}
-
-.references__bar-tooltip-total {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.references__bar-tooltip-detail {
-  font-size: 0.65rem;
-  color: var(--text-tertiary);
-}
-
-/* Legend */
-.references__legend {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-subtle);
-}
-
-.references__legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.75rem;
   color: var(--text-tertiary);
   font-weight: 500;
 }
 
-.references__legend-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+.references__card-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  opacity: 0;
+  transition: opacity var(--transition-smooth);
+}
+
+.references__card:hover .references__card-bar {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
-  .references__summary {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .references__bars {
-    height: 160px;
-    gap: 0.3rem;
-  }
-  .references__bar-year {
-    font-size: 0.55rem;
-  }
+  .references__grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .references__card { padding: 2rem 1rem; }
+  .references__card-num { font-size: 2rem; }
 }
 
 @media (max-width: 480px) {
-  .references__summary {
-    grid-template-columns: 1fr;
-  }
+  .references__grid { grid-template-columns: 1fr; }
 }
