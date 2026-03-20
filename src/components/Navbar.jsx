@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { HiMenuAlt3, HiX, HiOutlineDesktopComputer } from 'react-icons/hi';
 import { useLang } from '../context/LanguageContext';
 import './Navbar.css';
 
@@ -53,8 +53,18 @@ export default function Navbar() {
             <span className="navbar__lang-divider">/</span>
             <span className={lang === 'en' ? 'navbar__lang-active' : ''}>EN</span>
           </button>
-          <a href="#contact" className="navbar__cta btn-primary" onClick={(e) => { e.preventDefault(); scrollTo('#contact'); }}>
-            <span>{t('nav.cta')}</span>
+          <a
+            href="https://dijitalislemmerkezi.com/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="navbar__cta btn-primary"
+            style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '0.6rem 1.4rem' }}
+          >
+            <HiOutlineDesktopComputer style={{ fontSize: '1.4rem' }} />
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: '1.2' }}>
+               <span style={{ fontSize: '0.65rem', opacity: 0.9, fontWeight: '500', letterSpacing: '0.05em' }}>D EVENT</span>
+               <span style={{ fontSize: '0.9rem', fontWeight: '700' }}>{t('nav.digitalCenter')}</span>
+            </div>
           </a>
         </div>
 
