@@ -1,18 +1,20 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { useLang } from '../context/LanguageContext';
 import './Navbar.css';
 
-const links = [
-  { label: 'Hakkımızda', href: '#about' },
-  { label: 'Hizmetler', href: '#services' },
-  { label: 'Projeler', href: '#projects' },
-  { label: 'İletişim', href: '#contact' },
-];
-
 export default function Navbar() {
+  const { lang, toggleLang, t } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const links = [
+    { label: t('nav.about'), href: '#about' },
+    { label: t('nav.services'), href: '#services' },
+    { label: t('nav.projects'), href: '#projects' },
+    { label: t('nav.contact'), href: '#contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -39,22 +41,28 @@ export default function Navbar() {
 
         <div className="navbar__links">
           {links.map((link) => (
-            <a key={link.label} href={link.href} className="navbar__link" onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}>
+            <a key={link.href} href={link.href} className="navbar__link" onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}>
               {link.label}
             </a>
           ))}
         </div>
 
-        <a href="#contact" className="navbar__cta btn-primary" onClick={(e) => { e.preventDefault(); scrollTo('#contact'); }}>
-          <span>Teklif Alın</span>
-        </a>
+        <div className="navbar__right">
+          <button className="navbar__lang" onClick={toggleLang} aria-label="Change language">
+            <span className={lang === 'tr' ? 'navbar__lang-active' : ''}>TR</span>
+            <span className="navbar__lang-divider">/</span>
+            <span className={lang === 'en' ? 'navbar__lang-active' : ''}>EN</span>
+          </button>
+          <a href="#contact" className="navbar__cta btn-primary" onClick={(e) => { e.preventDefault(); scrollTo('#contact'); }}>
+            <span>{t('nav.cta')}</span>
+          </a>
+        </div>
 
         <button className="navbar__toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
           {menuOpen ? <HiX /> : <HiMenuAlt3 />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -66,7 +74,7 @@ export default function Navbar() {
           >
             {links.map((link, i) => (
               <motion.a
-                key={link.label}
+                key={link.href}
                 href={link.href}
                 className="navbar__mobile-link"
                 initial={{ opacity: 0, y: 10 }}
@@ -77,9 +85,16 @@ export default function Navbar() {
                 {link.label}
               </motion.a>
             ))}
-            <a href="#contact" className="btn-primary" style={{ marginTop: '1rem', width: '100%', justifyContent: 'center' }} onClick={(e) => { e.preventDefault(); scrollTo('#contact'); }}>
-              Teklif Alın
-            </a>
+            <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1rem' }}>
+              <button className="navbar__lang" onClick={toggleLang} style={{ flex: 1, justifyContent: 'center' }}>
+                <span className={lang === 'tr' ? 'navbar__lang-active' : ''}>TR</span>
+                <span className="navbar__lang-divider">/</span>
+                <span className={lang === 'en' ? 'navbar__lang-active' : ''}>EN</span>
+              </button>
+              <a href="#contact" className="btn-primary" style={{ flex: 1, justifyContent: 'center' }} onClick={(e) => { e.preventDefault(); scrollTo('#contact'); }}>
+                {t('nav.cta')}
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,5 +1,6 @@
 import { HiHeart } from 'react-icons/hi';
 import { FaInstagram, FaYoutube, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+import { useLang } from '../context/LanguageContext';
 import './Footer.css';
 
 const socialLinks = [
@@ -9,25 +10,25 @@ const socialLinks = [
   { icon: <FaTwitter />, href: '#', label: 'Twitter' },
 ];
 
-const footerLinks = [
-  { title: 'Şirket', links: ['Hakkımızda', 'Ekibimiz', 'Kariyer', 'Blog'] },
-  { title: 'Hizmetler', links: ['Kongre Yönetimi', 'Etkinlik Planlama', 'Dijital Çözümler', 'Lojistik'] },
-  { title: 'Yasal', links: ['Gizlilik Politikası', 'Kullanım Koşulları', 'KVKK', 'Çerez Politikası'] },
-];
-
 export default function Footer() {
+  const { t, lang } = useLang();
   const scrollTo = (href) => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+
+  const footerLinks = [
+    { title: t('footer.col1'), links: lang === 'tr' ? ['Hakkımızda', 'Ekibimiz', 'Kariyer', 'Blog'] : ['About Us', 'Our Team', 'Careers', 'Blog'] },
+    { title: t('footer.col2'), links: lang === 'tr' ? ['Kongre Yönetimi', 'Etkinlik Planlama', 'Dijital Çözümler', 'Lojistik'] : ['Congress Management', 'Event Planning', 'Digital Solutions', 'Logistics'] },
+    { title: t('footer.col3'), links: lang === 'tr' ? ['Gizlilik Politikası', 'Kullanım Koşulları', 'KVKK', 'Çerez Politikası'] : ['Privacy Policy', 'Terms of Use', 'GDPR', 'Cookie Policy'] },
+  ];
 
   return (
     <footer className="footer">
-      {/* CTA */}
       <div className="footer__cta">
         <div className="container footer__cta-inner">
           <h2 className="footer__cta-title">
-            Hayalinizi <span>Gerçeğe</span> Dönüştürelim
+            {t('footer.cta.title1')} <span>{t('footer.cta.accent')}</span> {t('footer.cta.title2')}
           </h2>
           <a href="#contact" className="btn-primary" onClick={(e) => { e.preventDefault(); scrollTo('#contact'); }}>
-            <span>Projenizi Başlatın →</span>
+            <span>{t('footer.cta.btn')}</span>
           </a>
         </div>
       </div>
@@ -38,9 +39,7 @@ export default function Footer() {
             <a href="#" className="footer__logo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
               <img src="/images/logo.png" alt="D Event" className="footer__logo-img" />
             </a>
-            <p className="footer__brand-desc">
-              Etkinlik ve kongre yönetiminde Türkiye'nin lider markası.
-            </p>
+            <p className="footer__brand-desc">{t('footer.desc')}</p>
             <div className="footer__social">
               {socialLinks.map((s) => (
                 <a key={s.label} href={s.href} className="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label={s.label}>
@@ -64,7 +63,7 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <p>© {new Date().getFullYear()} D Event Turizm Organizasyon A.Ş.</p>
-          <p className="footer__credit">Made with <HiHeart className="footer__heart" /> in İstanbul</p>
+          <p className="footer__credit">{t('footer.credit')} <HiHeart className="footer__heart" /> in İstanbul</p>
         </div>
       </div>
     </footer>

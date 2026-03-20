@@ -1,19 +1,26 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { HiOutlineCalendar, HiOutlineCurrencyDollar, HiOutlineLocationMarker, HiOutlineMusicNote, HiOutlineDesktopComputer, HiOutlineTruck } from 'react-icons/hi';
+import { HiCalendar, HiCurrencyDollar, HiLocationMarker } from 'react-icons/hi';
+import { FaMusic, FaLaptop, FaTruckMoving } from 'react-icons/fa';
+import { useLang } from '../context/LanguageContext';
 import './Services.css';
 
-const services = [
-  { icon: <HiOutlineCalendar />, title: 'Proje Yönetimi', desc: 'Etkinliğinizin A\'dan Z\'ye planlanması ve sorunsuz yürütülmesi.', color: '#f5a623' },
-  { icon: <HiOutlineCurrencyDollar />, title: 'Finans Yönetimi', desc: 'Bütçe optimizasyonu ve şeffaf finansal raporlama.', color: '#00aeef' },
-  { icon: <HiOutlineLocationMarker />, title: 'Mekan & Konaklama', desc: 'Etkinlik mekanı seçimi, otel ve transfer yönetimi.', color: '#e0334c' },
-  { icon: <HiOutlineMusicNote />, title: 'Sosyal Aktiviteler', desc: 'Gala yemekleri, konser ve eğlence programları.', color: '#8e44ad' },
-  { icon: <HiOutlineDesktopComputer />, title: 'Dijital Çözümler', desc: 'Online kayıt, mobil uygulama ve canlı yayın.', color: '#2ecc71' },
-  { icon: <HiOutlineTruck />, title: 'Lojistik Yönetim', desc: 'Ekipman tedariki ve operasyonel lojistik.', color: '#e67e22' },
+const serviceIcons = [
+  <HiCalendar />, <HiCurrencyDollar />, <HiLocationMarker />,
+  <FaMusic />, <FaLaptop />, <FaTruckMoving />
 ];
+const serviceColors = ['#f5a623', '#22c55e', '#e0334c', '#c084fc', '#00aeef', '#f97316'];
 
 export default function Services() {
+  const { t } = useLang();
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
+
+  const services = [1,2,3,4,5,6].map(i => ({
+    icon: serviceIcons[i-1],
+    color: serviceColors[i-1],
+    title: t(`svc${i}.title`),
+    desc: t(`svc${i}.desc`),
+  }));
 
   return (
     <section id="services" className="services section-padding">
@@ -24,27 +31,27 @@ export default function Services() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <span className="section-label">Hizmetlerimiz</span>
-          <h2 className="section-title">Ne Yapıyoruz?</h2>
-          <p className="section-subtitle">
-            Her ölçekteki etkinliğiniz için kapsamlı ve profesyonel çözümler üretiyoruz.
+          <span className="section-label" style={{ justifyContent: 'center' }}>{t('services.label')}</span>
+          <h2 className="section-title" style={{ textAlign: 'center' }}>{t('services.title')}</h2>
+          <p className="section-subtitle" style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
+            {t('services.desc')}
           </p>
         </motion.div>
 
         <div className="services__grid">
-          {services.map((s, i) => (
+          {services.map((svc, i) => (
             <motion.div
-              key={s.title}
+              key={svc.title}
               className="services__card glass-card"
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.08 + 0.2, duration: 0.6 }}
+              transition={{ delay: i * 0.08 + 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="services__card-icon" style={{ color: s.color, background: `${s.color}12` }}>
-                {s.icon}
+              <div className="services__card-icon" style={{ color: svc.color, background: `${svc.color}12` }}>
+                {svc.icon}
               </div>
-              <h3 className="services__card-title">{s.title}</h3>
-              <p className="services__card-desc">{s.desc}</p>
+              <h3 className="services__card-title">{svc.title}</h3>
+              <p className="services__card-desc">{svc.desc}</p>
             </motion.div>
           ))}
         </div>
