@@ -20,16 +20,16 @@ export const translations = {
     'hero.scroll': 'Aşağı Kaydırın',
 
     // About
-    'about.label': 'D Event Yaklaşımı',
-    'about.title': 'Bizi Tanıyın',
+    'about.label': 'Hakkımızda',
+    'about.title': 'D Event Yaklaşımı',
     'about.desc': '872 Etkinlik ve 868 Ulusal ve Uluslararası Kongre ve Sempozyumdan edindiğimiz bilgi ve deneyimi, yaratıcı bir bakış açısıyla birleştirerek, teknolojik altyapımız ve yenilikçi hizmetlerimizle standart normların üzerinde çözümler sunuyoruz.',
     'about.vision.title': 'Yaratıcı & Verimli & Yenilikçi',
     'about.vision.desc': 'd Event Turizm, kuruluşundan itibaren uzman kadrosuyla yurt içi ve yurt dışı kongre, organizasyon ve diğer tüm etkinliklerin planlanması ve hayata geçirilmesi amacıyla butik hizmet anlayışıyla yapılandırılmıştır. Profesyonel ekibiyle sektöre yeni bir bakış açısı getirerek, kurumunuzun en güvenilir çözüm ortağı olmayı hedeflemektedir.',
     'about.badge': 'Yıllık Deneyim',
 
     // Services
-    'services.label': 'Kongre & Etkinlik Yönetimi',
-    'services.title': 'Hizmetlerimiz',
+    'services.label': 'Hizmetlerimiz',
+    'services.title': 'Kongre & Etkinlik Yönetimi',
     'services.desc': 'Etkinlik ve kongrelerin proje ve operasyon yönetiminden finans ve risk yönetimine kadar konaklama, ulaşım ve sosyal aktivite yönetimi dahil tüm süreçlerin tasarım, planlama ve yürütülmesini "sıfır hata toleransı ve maksimum verimlilik" ilkesiyle gerçekleştiriyoruz.',
     'svc1.title': 'Proje Yönetimi',
     'svc1.desc': "Etkinliğinizin A'dan Z'ye planlanması, takvim ve ekip koordinasyonu.",
@@ -69,8 +69,8 @@ export const translations = {
     'ref.cities': 'Farklı Şehir',
 
     // Projects → Neden Biz
-    'projects.label': 'Farkımız',
-    'projects.title': 'Neden D Event?',
+    'projects.label': 'Neden D Event?',
+    'projects.title': 'Farkımız',
     'projects.desc': 'Sektörde fark yaratan değerlerimiz.',
     'proj1.title': 'Sıfır Hata Toleransı',
     'proj1.desc': 'Her detay titizlikle planlanır. Kalite kontrol süreçlerimiz sektör standartlarının üzerindedir.',
@@ -146,16 +146,16 @@ export const translations = {
     'hero.scroll': 'Scroll Down',
 
     // About
-    'about.label': 'D Event Approach',
-    'about.title': 'Get to Know Us',
+    'about.label': 'About Us',
+    'about.title': 'D Event Approach',
     'about.desc': 'By combining the knowledge and experience we have gained through 872 Events and 868 National and International Congresses and Symposia with an inventive perspective, we offer solutions above standard norms through our technological infrastructure and innovative services.',
     'about.vision.title': 'Creative & Efficient & Innovative',
     'about.vision.desc': 'With its specialized staff since its establishment, d Event Tourisme was organized for the purpose of planning and putting domestic and international congresses, organizations and all other events into practice through boutique service concept. d Event Tourisme aims at becoming the most reliable solution partner of your corporation by bringing a new perspective to the sector with its professional team.',
     'about.badge': 'Years Experience',
 
     // Services
-    'services.label': 'Congress & Event Management',
-    'services.title': 'Our Services',
+    'services.label': 'Our Services',
+    'services.title': 'Congress & Event Management',
     'services.desc': 'From project and operation management to finance and risk management of events and congresses, we carry out the design, planning and execution of all processes including accommodation, transportation and social activity management with the principle of "zero fault tolerance and maximum efficiency".',
     'svc1.title': 'Project Management',
     'svc1.desc': 'End-to-end planning, scheduling and team coordination.',
@@ -195,8 +195,8 @@ export const translations = {
     'ref.cities': 'Different Cities',
 
     // Projects → Why Us
-    'projects.label': 'Our Difference',
-    'projects.title': 'Why D Event?',
+    'projects.label': 'Why D Event?',
+    'projects.title': 'Our Difference',
     'projects.desc': 'The values that set us apart in the industry.',
     'proj1.title': 'Zero Fault Tolerance',
     'proj1.desc': 'Every detail is meticulously planned. Our quality control exceeds industry standards.',
