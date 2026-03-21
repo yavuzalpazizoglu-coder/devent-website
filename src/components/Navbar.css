@@ -41,15 +41,16 @@
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .navbar__link {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--text-secondary);
   transition: color var(--transition-fast);
   position: relative;
+  white-space: nowrap;
 }
 
 .navbar__link::after {
