@@ -33,7 +33,7 @@ export default function Services() {
         >
 
           <h2 className="section-title" style={{ textAlign: 'center' }}>{t('services.title')}</h2>
-          <p className="section-subtitle" style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
+          <p className="section-subtitle" style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto', fontSize: '1.05rem' }}>
             {t('services.desc')}
           </p>
         </motion.div>
