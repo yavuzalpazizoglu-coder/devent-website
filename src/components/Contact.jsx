@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { HiLocationMarker, HiPhone, HiMail, HiGlobe } from 'react-icons/hi';
+import { HiLocationMarker, HiPhone, HiMail } from 'react-icons/hi';
+import { FaLinkedin, FaDesktop, FaBuilding } from 'react-icons/fa';
 import { useLang } from '../context/LanguageContext';
 import './Contact.css';
 
@@ -10,13 +11,6 @@ export default function Contact() {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
-
-  const contactInfo = [
-    { icon: <HiLocationMarker />, label: t('contact.address.label'), value: t('contact.address'), color: '#e0334c' },
-    { icon: <HiPhone />, label: t('contact.phone.label'), value: t('contact.phone'), color: '#00aeef' },
-    { icon: <HiMail />, label: t('contact.email.label'), value: t('contact.email'), color: '#f5a623' },
-    { icon: <HiGlobe />, label: t('contact.web.label'), value: t('contact.web'), color: '#22c55e' },
-  ];
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
   const handleSubmit = (e) => {
@@ -38,16 +32,53 @@ export default function Contact() {
 
         <div className="contact__layout">
           <motion.div className="contact__left" initial={{ opacity: 0, x: -40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.15, duration: 0.7 }}>
-            <div className="contact__cards" style={{ marginBottom: '2rem' }}>
-              {contactInfo.map((item) => (
-                <div key={item.label} className="contact__card">
-                  <div className="contact__card-icon" style={{ color: item.color, background: `${item.color}12` }}>{item.icon}</div>
-                  <div>
-                    <span className="contact__card-label">{item.label}</span>
-                    <span className="contact__card-value">{item.value}</span>
-                  </div>
+            <div className="contact__brand-message">
+               <h3 className="contact__brand-title">{t('contact.title')}</h3>
+               <p className="contact__brand-desc">{t('contact.desc')}</p>
+            </div>
+
+            <div className="contact__info-grid">
+              <div className="contact__info-item">
+                <div className="contact__info-icon" style={{ color: '#e0334c', background: '#e0334c15' }}><HiLocationMarker /></div>
+                <div>
+                  <span className="contact__info-label">{t('contact.address.label')}</span>
+                  <span className="contact__info-value">{t('contact.address')}</span>
                 </div>
-              ))}
+              </div>
+              
+              <div className="contact__info-item">
+                <div className="contact__info-icon" style={{ color: '#00aeef', background: '#00aeef15' }}><HiPhone /></div>
+                <div>
+                  <span className="contact__info-label">{t('contact.phone.label')}</span>
+                  <a href="tel:+902165731836" className="contact__info-value link">+90 (216) 573 18 36</a>
+                </div>
+              </div>
+
+              <div className="contact__info-item">
+                <div className="contact__info-icon" style={{ color: '#f5a623', background: '#f5a62315' }}><HiMail /></div>
+                <div>
+                  <span className="contact__info-label">{t('contact.email.label')}</span>
+                  <a href="mailto:devent@devent.com.tr" className="contact__info-value link">{t('contact.email')}</a>
+                </div>
+              </div>
+            </div>
+
+            <div className="contact__platforms">
+              <span className="contact__platforms-title">{t('contact.platforms.title')}</span>
+              <div className="contact__platforms-list">
+                <a href="https://www.linkedin.com/company/2784340/" target="_blank" rel="noopener noreferrer" className="platform-btn linkedin">
+                  <FaLinkedin className="platform-btn-icon" />
+                  <span>{t('contact.platforms.linkedin')}</span>
+                </a>
+                <a href="https://dijitalislemmerkezi.com/login" target="_blank" rel="noopener noreferrer" className="platform-btn digital">
+                  <FaDesktop className="platform-btn-icon" />
+                  <span>{t('nav.digitalCenter')}</span>
+                </a>
+                <a href="https://devent-online.com/auth/login" target="_blank" rel="noopener noreferrer" className="platform-btn hotel">
+                  <FaBuilding className="platform-btn-icon" />
+                  <span>{t('nav.hotelCenter')}</span>
+                </a>
+              </div>
             </div>
 
           </motion.div>

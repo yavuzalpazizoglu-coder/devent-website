@@ -20,39 +20,49 @@
   justify-content: center;
 }
 
-.contact__cards {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+.contact__brand-message {
+  margin-bottom: 2rem;
 }
 
-.contact__card {
+.contact__brand-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.contact__brand-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.contact__info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact__info-item {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  padding: 1.5rem 1.75rem;
-  border: 1px solid var(--border-subtle);
-  border-radius: 16px;
-  background: var(--bg-card);
-  transition: all var(--transition-smooth);
 }
 
-.contact__card:hover {
-  border-color: var(--border-hover);
-}
-
-.contact__card-icon {
-  width: 42px;
-  height: 42px;
+.contact__info-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   flex-shrink: 0;
 }
 
-.contact__card-label {
+.contact__info-label {
   display: block;
   font-size: 0.75rem;
   font-weight: 600;
@@ -62,11 +72,82 @@
   margin-bottom: 0.2rem;
 }
 
-.contact__card-value {
+.contact__info-value {
   display: block;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.contact__info-value.link {
+  transition: color var(--transition-fast);
+}
+
+.contact__info-value.link:hover {
+  color: var(--color-primary);
+}
+
+.contact__platforms {
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.contact__platforms-title {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.contact__platforms-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.platform-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all var(--transition-smooth);
+}
+
+.platform-btn-icon {
+  font-size: 1.2rem;
+}
+
+.platform-btn:hover {
+  transform: translateX(4px);
+  color: var(--text-primary);
+}
+
+.platform-btn.linkedin:hover {
+  border-color: #0a66c2;
+  background: rgba(10, 102, 194, 0.05);
+  color: #0a66c2;
+}
+
+.platform-btn.digital:hover {
+  border-color: #f5a623;
+  background: rgba(245, 166, 35, 0.05);
+  color: #f5a623;
+}
+
+.platform-btn.hotel:hover {
+  border-color: #00aeef;
+  background: rgba(0, 174, 239, 0.05);
+  color: #00aeef;
 }
 
 
