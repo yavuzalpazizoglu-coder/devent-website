@@ -38,8 +38,8 @@ export default function Contact() {
 
         <div className="contact__layout">
           <motion.div className="contact__left" initial={{ opacity: 0, x: -40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.15, duration: 0.7 }}>
-            <div className="contact__image" style={{ width: '100%', height: '260px', borderRadius: '16px', overflow: 'hidden', marginBottom: '2rem', boxShadow: '0 4px 24px rgba(0,0,0,0.2)' }}>
-               <img src="http://devent.com.tr/wp-content/uploads/2025/12/iletisim-gorsel-bw1.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="İletişim" />
+            <div className="contact__image" style={{ width: '100%', height: '260px', borderRadius: '16px', overflow: 'hidden', marginBottom: '2rem', boxShadow: '0 4px 24px rgba(0,0,0,0.2)', position: 'relative' }}>
+               <img src="/images/linkedin/republic-event.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'} alt="İletişim" />
             </div>
             <div className="contact__cards" style={{ marginBottom: '2rem' }}>
               {contactInfo.map((item) => (
