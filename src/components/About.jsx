@@ -14,10 +14,6 @@ export default function About() {
           <div className="about__visual">
             <div className="about__img-wrapper">
               <img src="/images/linkedin/trd-stage.jpg" alt="d Event Yaklaşımı" className="about__image" loading="lazy" />
-              <div className="about__badge">
-                <span className="about__badge-number">13+</span>
-                <span className="about__badge-text">{t('about.badge')}</span>
-              </div>
             </div>
           </div>
 
@@ -29,21 +25,6 @@ export default function About() {
             <div className="about__vision">
               <h3 className="about__vision-title">{t('about.vision.title')}</h3>
               <p className="about__vision-desc">{t('about.vision.desc')}</p>
-            </div>
-
-            <div className="about__stats-row">
-              <div className="about__stat">
-                <span className="about__stat-num">872+</span>
-                <span className="about__stat-label">{t('hero.stat.events')}</span>
-              </div>
-              <div className="about__stat">
-                <span className="about__stat-num">868+</span>
-                <span className="about__stat-label">{t('hero.stat.congress')}</span>
-              </div>
-              <div className="about__stat">
-                <span className="about__stat-num">100%</span>
-                <span className="about__stat-label">{t('hero.stat.satisfaction')}</span>
-              </div>
             </div>
           </div>
         </motion.div>

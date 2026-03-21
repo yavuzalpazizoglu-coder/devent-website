@@ -1,10 +1,29 @@
 import { motion } from 'framer-motion';
 import { useLang } from '../context/LanguageContext';
+import NewsTicker from './NewsTicker';
 import './Hero.css';
+
+const titleVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const wordVariant = {
+  hidden: { opacity: 0, y: 30, filter: 'blur(8px)' },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
+};
 
 export default function Hero() {
   const { t } = useLang();
-  const scrollTo = (href) => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+
+  const line1Words = t('hero.title1').split(' ');
+  const accentWords = t('hero.titleAccent').split(' ');
+  const line3Words = t('hero.title2') ? t('hero.title2').split(' ') : [];
 
   return (
     <section id="hero" className="hero">
@@ -16,55 +35,54 @@ export default function Hero() {
       </div>
 
       <div className="container hero__content">
-        <motion.div
-          className="hero__text"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <h1 className="hero__title">
-            {t('hero.title1')}
+        <div className="hero__text">
+          <motion.h1
+            className="hero__title"
+            variants={titleVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {line1Words.map((w, i) => (
+              <motion.span key={`l1-${i}`} variants={wordVariant} className="hero__word">
+                {w}{' '}
+              </motion.span>
+            ))}
             <br />
-            <span className="hero__title-accent">{t('hero.titleAccent')}</span>
-            {t('hero.title2') && <><br />{t('hero.title2')}</>}
-          </h1>
-          <p className="hero__desc">{t('hero.desc')}</p>
-          <div className="hero__actions">
-            <a href="#contact" className="btn-primary" onClick={(e) => { e.preventDefault(); scrollTo('#contact'); }}>
-              <span>{t('hero.cta')}</span>
-            </a>
-            <a href="#projects" className="btn-outline" onClick={(e) => { e.preventDefault(); scrollTo('#projects'); }}>
-              <span>{t('hero.projects')}</span>
-            </a>
-          </div>
-        </motion.div>
+            {accentWords.map((w, i) => (
+              <motion.span key={`acc-${i}`} variants={wordVariant} className="hero__word hero__title-accent">
+                {w}{' '}
+              </motion.span>
+            ))}
+            {line3Words.length > 0 && (
+              <>
+                <br />
+                {line3Words.map((w, i) => (
+                  <motion.span key={`l3-${i}`} variants={wordVariant} className="hero__word">
+                    {w}{' '}
+                  </motion.span>
+                ))}
+              </>
+            )}
+          </motion.h1>
 
-        <motion.div
-          className="hero__stats"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <div className="hero__stat">
-            <span className="hero__stat-number">872+</span>
-            <span className="hero__stat-label">{t('hero.stat.events')}</span>
-          </div>
-          <div className="hero__stat-divider" />
-          <div className="hero__stat">
-            <span className="hero__stat-number">868+</span>
-            <span className="hero__stat-label">{t('hero.stat.congress')}</span>
-          </div>
-          <div className="hero__stat-divider" />
-          <div className="hero__stat">
-            <span className="hero__stat-number">100%</span>
-            <span className="hero__stat-label">{t('hero.stat.satisfaction')}</span>
-          </div>
-        </motion.div>
+          <motion.p
+            className="hero__desc"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {t('hero.desc')}
+          </motion.p>
+        </div>
       </div>
 
-      <motion.div className="hero__scroll" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>
-        <span>{t('hero.scroll')}</span>
-        <div className="hero__scroll-line" />
+      <motion.div
+        className="hero__ticker-wrap"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.2 }}
+      >
+        <NewsTicker />
       </motion.div>
     </section>
   );

@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiMenuAlt3, HiX, HiOutlineDesktopComputer } from 'react-icons/hi';
+import { HiMenuAlt3, HiX, HiSun, HiMoon } from 'react-icons/hi';
 import { useLang } from '../context/LanguageContext';
+import { useTheme } from '../context/ThemeContext';
 import './Navbar.css';
 
 export default function Navbar() {
   const { lang, toggleLang, t } = useLang();
+  const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const links = [
+    { label: t('nav.references') || 'Rakamlarla D Event', href: '#references' },
     { label: t('nav.about'), href: '#about' },
     { label: t('nav.services'), href: '#services' },
     { label: t('nav.projects'), href: '#projects' },
@@ -21,6 +24,15 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
 
   const scrollTo = (href) => {
     setMenuOpen(false);
@@ -48,40 +60,34 @@ export default function Navbar() {
         </div>
 
         <div className="navbar__right">
+          <button className="navbar__theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+            {theme === 'dark' ? <HiSun /> : <HiMoon />}
+          </button>
           <button className="navbar__lang" onClick={toggleLang} aria-label="Change language">
             <span className={lang === 'tr' ? 'navbar__lang-active' : ''}>TR</span>
             <span className="navbar__lang-divider">/</span>
             <span className={lang === 'en' ? 'navbar__lang-active' : ''}>EN</span>
           </button>
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
-            <a
-              href="https://dijitalislemmerkezi.com/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="navbar__cta btn-primary"
-              style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '0.4rem 0.8rem', minWidth: '170px', justifyContent: 'center' }}
-            >
-              <HiOutlineDesktopComputer style={{ fontSize: '1.2rem', flexShrink: 0 }} />
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: '1.2', flexShrink: 0 }}>
-                 <span style={{ fontSize: '0.55rem', opacity: 0.9, fontWeight: '600', letterSpacing: '0.02em', textTransform: 'uppercase' }}>{t('nav.digitalCenter.sub')}</span>
-                 <span style={{ fontSize: '0.75rem', fontWeight: '700', whiteSpace: 'nowrap' }}>{t('nav.digitalCenter')}</span>
-              </div>
-            </a>
-            
-            <a
-              href="https://devent-online.com/auth/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="navbar__cta btn-secondary"
-              style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '0.4rem 0.8rem', minWidth: '170px', justifyContent: 'center' }}
-            >
-              <HiOutlineDesktopComputer style={{ fontSize: '1.2rem', flexShrink: 0 }} />
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: '1.2', flexShrink: 0 }}>
-                 <span style={{ fontSize: '0.55rem', opacity: 0.9, fontWeight: '600', letterSpacing: '0.02em', textTransform: 'uppercase' }}>{t('nav.hotelCenter.sub')}</span>
-                 <span style={{ fontSize: '0.75rem', fontWeight: '700', whiteSpace: 'nowrap' }}>{t('nav.hotelCenter')}</span>
-              </div>
-            </a>
-          </div>
+          <a
+            href="https://dijitalislemmerkezi.com/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="navbar__cta navbar__cta--primary"
+          >
+            <span className="navbar__cta-shimmer" />
+            <span className="navbar__cta-accent" />
+            <span className="navbar__cta-text">{t('nav.digitalCenter')}</span>
+          </a>
+          <a
+            href="https://devent-online.com/auth/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="navbar__cta navbar__cta--accent"
+          >
+            <span className="navbar__cta-shimmer" />
+            <span className="navbar__cta-accent" />
+            <span className="navbar__cta-text">{t('nav.hotelCenter')}</span>
+          </a>
         </div>
 
         <button className="navbar__toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
@@ -91,54 +97,60 @@ export default function Navbar() {
 
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            className="navbar__mobile"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-          >
-            {links.map((link, i) => (
-              <motion.a
-                key={link.href}
-                href={link.href}
-                className="navbar__mobile-link"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.06 }}
-                onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}
-              >
-                {link.label}
-              </motion.a>
-            ))}
-            <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1rem' }}>
-              <button className="navbar__lang" onClick={toggleLang} style={{ flex: 1, justifyContent: 'center' }}>
-                <span className={lang === 'tr' ? 'navbar__lang-active' : ''}>TR</span>
-                <span className="navbar__lang-divider">/</span>
-                <span className={lang === 'en' ? 'navbar__lang-active' : ''}>EN</span>
-              </button>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', flex: 2 }}>
-                <a
-                  href="https://dijitalislemmerkezi.com/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                  style={{ display: 'flex', justifyContent: 'center', padding: '0.75rem' }}
+          <>
+            <motion.div
+              className="navbar__overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMenuOpen(false)}
+            />
+            <motion.div
+              className="navbar__mobile"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              {links.map((link, i) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  className="navbar__mobile-link"
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.06 }}
+                  onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}
                 >
-                  {t('nav.digitalCenter')}
+                  {link.label}
+                </motion.a>
+              ))}
+
+              <div className="navbar__mobile-actions">
+                <button className="navbar__theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+                  {theme === 'dark' ? <HiSun /> : <HiMoon />}
+                </button>
+                <button className="navbar__lang" onClick={toggleLang}>
+                  <span className={lang === 'tr' ? 'navbar__lang-active' : ''}>TR</span>
+                  <span className="navbar__lang-divider">/</span>
+                  <span className={lang === 'en' ? 'navbar__lang-active' : ''}>EN</span>
+                </button>
+              </div>
+
+              <div className="navbar__mobile-ctas">
+                <a href="https://dijitalislemmerkezi.com/login" target="_blank" rel="noopener noreferrer" className="navbar__cta navbar__cta--primary">
+                  <span className="navbar__cta-shimmer" />
+                  <span className="navbar__cta-accent" />
+                  <span className="navbar__cta-text">{t('nav.digitalCenter')}</span>
                 </a>
-                <a
-                  href="https://devent-online.com/auth/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary"
-                  style={{ display: 'flex', justifyContent: 'center', padding: '0.75rem' }}
-                >
-                  {t('nav.hotelCenter')}
+                <a href="https://devent-online.com/auth/login" target="_blank" rel="noopener noreferrer" className="navbar__cta navbar__cta--accent">
+                  <span className="navbar__cta-shimmer" />
+                  <span className="navbar__cta-accent" />
+                  <span className="navbar__cta-text">{t('nav.hotelCenter')}</span>
                 </a>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.nav>

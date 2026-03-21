@@ -1,94 +1,154 @@
 .projects {
-  background: var(--bg-secondary);
-}
-
-.projects__header {
-  margin-bottom: 4rem;
-}
-
-.projects__layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-}
-
-.projects__image-container {
-  border-radius: 20px;
-  overflow: hidden;
+  background: linear-gradient(180deg, #110f1e 0%, #110f24 45%, #110f24 55%, #0f1519 100%);
   position: relative;
-  height: 100%;
-  min-height: 500px;
+  overflow: hidden;
 }
 
-.projects__image {
-  width: 100%;
-  height: 550px;
-  object-fit: cover;
+.projects::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
-  transition: transform var(--transition-slow);
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 75% 25%, rgba(100,60,200,0.1) 0%, transparent 40%),
+    radial-gradient(ellipse at 25% 75%, rgba(80,40,180,0.08) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 100%, rgba(140,68,173,0.05) 0%, transparent 50%);
+  pointer-events: none;
+  animation: floatOrb1 26s ease-in-out infinite;
 }
 
-.projects__layout:hover .projects__image {
-  transform: scale(1.05);
+/* SVG: cross/plus pattern + rings bottom-right */
+.projects::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 22v16M22 30h16' fill='none' stroke='%23e0334c' stroke-width='0.4' opacity='0.12'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='200' cy='200' r='170' fill='none' stroke='%2300aeef' stroke-width='0.5' opacity='0.1'/%3E%3Ccircle cx='200' cy='200' r='120' fill='none' stroke='%23e0334c' stroke-width='0.4' opacity='0.07'/%3E%3Ccircle cx='200' cy='200' r='70' fill='none' stroke='%23f5a623' stroke-width='0.3' opacity='0.05'/%3E%3C/svg%3E");
+  background-repeat: repeat, no-repeat;
+  background-position: 0 0, 88% 80%;
+  background-size: 60px 60px, 400px 400px;
 }
 
-.projects__list {
+.projects__header {
+  margin-bottom: 3.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.projects__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  position: relative;
+  z-index: 1;
 }
 
-.projects__list-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1.25rem 1rem;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid var(--border-glass);
+/* Yuvarlak badge numaralı kart */
+.projects__card {
+  padding: 2.25rem 1.75rem;
+  background: linear-gradient(165deg, #1e2138 0%, #1a1d32 100%);
+  border-radius: 14px;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(100,60,200,0.08);
+  text-align: center;
+}
+
+.projects__card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00aeef, #f5a623, #e0334c, #00aeef);
+  background-size: 200% 100%;
+  animation: accentShimmer 4s linear infinite;
+  opacity: 0.6;
+  box-shadow: 0 -2px 12px rgba(0,174,239,0.12);
+  transition: opacity var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.projects__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 174, 239, 0.15);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.25),
+    0 0 40px rgba(0, 174, 239, 0.08);
+  background: linear-gradient(165deg, #222540 0%, #1e2138 100%);
+}
+
+.projects__card:hover::before {
+  opacity: 1;
+  box-shadow: 0 -2px 20px rgba(0,174,239,0.2);
+}
+
+.projects__card-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, rgba(0,174,239,0.12), rgba(245,166,35,0.12));
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  border: 1px solid rgba(245, 166, 35, 0.15);
   transition: all var(--transition-fast);
 }
 
-.projects__list-item:hover {
-  background: rgba(255,255,255,0.04);
-  border-color: var(--color-primary);
-  transform: translateY(-2px);
+.projects__card:hover .projects__card-num {
+  background: linear-gradient(135deg, #f5a623, #e0334c);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(245, 166, 35, 0.3);
 }
 
-.projects__list-icon {
+.projects__card-line {
+  width: 28px;
+  height: 2px;
+  background: linear-gradient(90deg, #00aeef, #f5a623, #00aeef);
+  background-size: 200% 100%;
+  animation: accentShimmer 4s linear infinite;
+  margin: 0 auto 0.75rem;
+  opacity: 0.6;
+  box-shadow: 0 1px 8px rgba(0,174,239,0.1);
+  transition: width var(--transition-fast), opacity var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.projects__card:hover .projects__card-line {
   width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  background: rgba(245, 166, 35, 0.1);
-  color: var(--color-primary);
-  font-size: 1.3rem;
+  opacity: 1;
+  box-shadow: 0 1px 14px rgba(0,174,239,0.2);
 }
 
-.projects__list-title {
+.projects__card-title {
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 700;
-  margin-bottom: 0.25rem;
   color: var(--text-primary);
+  margin-bottom: 0.5rem;
 }
 
-.projects__list-desc {
+.projects__card-desc {
   font-size: 0.85rem;
   color: var(--text-tertiary);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 @media (max-width: 900px) {
-  .projects__layout { grid-template-columns: 1fr; }
-  .projects__image-container { height: 400px; min-height: auto; order: -1; }
+  .projects__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   .projects__grid { grid-template-columns: 1fr; }
 }

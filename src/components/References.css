@@ -1,80 +1,161 @@
 .references {
-  background: var(--bg-primary);
+  background: linear-gradient(180deg, #12100d 0%, #1c170f 45%, #1c170f 55%, #131218 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.references::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(245,166,35,0.14) 0%, transparent 45%),
+    radial-gradient(ellipse at 20% 80%, rgba(200,140,40,0.08) 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 80%, rgba(180,100,20,0.06) 0%, transparent 40%);
+  pointer-events: none;
+  animation: floatOrb1 24s ease-in-out infinite;
+}
+
+/* SVG: gold dot grid + concentric rings top-right */
+.references::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='%23f5a623' opacity='0.18'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='200' cy='200' r='180' fill='none' stroke='%23f5a623' stroke-width='0.5' opacity='0.12'/%3E%3Ccircle cx='200' cy='200' r='130' fill='none' stroke='%2300aeef' stroke-width='0.4' opacity='0.08'/%3E%3Ccircle cx='200' cy='200' r='80' fill='none' stroke='%23e0334c' stroke-width='0.3' opacity='0.06'/%3E%3C/svg%3E");
+  background-repeat: repeat, no-repeat;
+  background-position: 0 0, 92% 8%;
+  background-size: 40px 40px, 380px 380px;
 }
 
 .references__header {
   margin-bottom: 3.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .references__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1.25rem;
+  position: relative;
+  z-index: 1;
 }
 
+/* Glassmorphism stat kartları */
 .references__card {
   text-align: center;
   padding: 2.5rem 1.5rem;
-  border: 1px solid var(--border-subtle);
-  border-radius: 16px;
-  transition: all var(--transition-smooth);
+  background: linear-gradient(165deg, #1e2138 0%, #1a1d32 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 14px;
+  transition: all var(--transition-fast);
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(245,166,35,0.08);
+}
+
+.references__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f5a623, #e0334c, #00aeef, #f5a623);
+  background-size: 200% 100%;
+  animation: accentShimmer 4s linear infinite;
+  opacity: 0.7;
+  box-shadow: 0 2px 12px rgba(245,166,35,0.15);
+  transition: opacity var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .references__card::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: currentColor;
-  opacity: 0;
-  transition: opacity var(--transition-smooth);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,166,35,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  transition: width var(--transition-fast), height var(--transition-fast);
 }
 
 .references__card:hover {
-  border-color: var(--border-hover);
   transform: translateY(-4px);
+  border-color: rgba(245, 166, 35, 0.18);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.25),
+    0 0 40px rgba(245, 166, 35, 0.08);
+  background: linear-gradient(165deg, #222540 0%, #1e2138 100%);
+}
+
+.references__card:hover::before {
+  opacity: 1;
+  box-shadow: 0 2px 20px rgba(245,166,35,0.25);
 }
 
 .references__card:hover::after {
-  opacity: 0.3;
-}
-
-.references__card-icon {
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 14px;
-  font-size: 1.4rem;
-  margin: 0 auto 1.25rem;
+  width: 180px;
+  height: 180px;
 }
 
 .references__card-num {
   display: block;
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: 2.75rem;
   font-weight: 800;
-  margin-bottom: 0.25rem;
+  background: linear-gradient(135deg, #f5a623, #e0334c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   letter-spacing: -0.03em;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.references__card-line {
+  width: 28px;
+  height: 2px;
+  background: linear-gradient(90deg, #f5a623, #00aeef, #f5a623);
+  background-size: 200% 100%;
+  animation: accentShimmer 4s linear infinite;
+  margin: 1rem auto;
+  opacity: 0.6;
+  box-shadow: 0 1px 8px rgba(245,166,35,0.1);
+  transition: width var(--transition-fast), opacity var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.references__card:hover .references__card-line {
+  width: 48px;
+  opacity: 1;
+  box-shadow: 0 1px 14px rgba(245,166,35,0.2);
 }
 
 .references__card-label {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--text-tertiary);
   font-weight: 500;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 900px) {
-  .references__grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-  .references__card { padding: 2.5rem 1.5rem; }
-  .references__card-num { font-size: 2.5rem; }
+  .references__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 480px) {
   .references__grid { grid-template-columns: 1fr; }
+  .references__card-num { font-size: 2.25rem; }
 }

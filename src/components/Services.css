@@ -1,97 +1,126 @@
 .services {
-  background: var(--bg-primary);
+  background: linear-gradient(180deg, #151018 0%, #1c1016 45%, #1c1016 55%, #110f20 100%);
   position: relative;
   overflow: hidden;
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 5% 70%, rgba(224,51,76,0.1) 0%, transparent 40%),
+    radial-gradient(ellipse at 95% 25%, rgba(180,40,80,0.08) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 0%, rgba(245,166,35,0.05) 0%, transparent 50%);
+  pointer-events: none;
+  animation: floatOrb2 32s ease-in-out infinite;
+}
+
+/* SVG: diagonal grid + hexagon top-left */
+.services::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='44' height='44' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 44L44 0M-4 4L4 -4M40 48L48 40' fill='none' stroke='%23e0334c' stroke-width='0.3' opacity='0.09'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg width='300' height='260' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='150,10 280,75 280,185 150,250 20,185 20,75' fill='none' stroke='%23f5a623' stroke-width='0.6' opacity='0.1'/%3E%3Cpolygon points='150,50 240,95 240,165 150,210 60,165 60,95' fill='none' stroke='%2300aeef' stroke-width='0.4' opacity='0.07'/%3E%3C/svg%3E");
+  background-repeat: repeat, no-repeat;
+  background-position: 0 0, 6% 12%;
+  background-size: 44px 44px, 340px 300px;
 }
 
 .services__header {
-  margin-bottom: 4rem;
-}
-
-.services__layout {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.services__image-container {
-  border-radius: 20px;
-  overflow: hidden;
+  margin-bottom: 3.5rem;
   position: relative;
+  z-index: 1;
 }
 
-.services__image {
-  width: 100%;
-  height: 550px;
-  object-fit: cover;
-  transition: transform var(--transition-slow);
-}
-
-.services__layout:hover .services__image {
-  transform: scale(1.05);
-}
-
-.services__list {
+.services__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  position: relative;
+  z-index: 1;
 }
 
-.services__list-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1.25rem 1rem;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid var(--border-glass);
+/* Sol aksanlı şerit kart */
+.services__card {
+  padding: 2rem 1.75rem 2rem 2rem;
+  background: linear-gradient(165deg, #1e2138 0%, #1a1d32 100%);
+  border-radius: 14px;
   transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(224,51,76,0.08);
+  border-left: 3px solid rgba(245, 166, 35, 0.4);
+  box-shadow: -3px 0 12px rgba(245,166,35,0.06);
 }
 
-.services__list-item:hover {
-  background: rgba(255,255,255,0.04);
-  border-color: var(--color-primary);
-  transform: translateY(-2px);
+.services__card:hover {
+  transform: translateY(-4px);
+  border-left-color: #f5a623;
+  border-color: rgba(245, 166, 35, 0.12);
+  border-left-color: #f5a623;
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.25),
+    -3px 0 20px rgba(245, 166, 35, 0.12),
+    0 0 40px rgba(245, 166, 35, 0.06);
+  background: linear-gradient(165deg, #222540 0%, #1e2138 100%);
 }
 
-.services__list-icon {
+.services__card-num {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #f5a623, #e0334c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.services__card-line {
+  width: 28px;
+  height: 2px;
+  background: linear-gradient(90deg, #f5a623, #00aeef, #f5a623);
+  background-size: 200% 100%;
+  animation: accentShimmer 4s linear infinite;
+  margin: 0.75rem 0;
+  opacity: 0.6;
+  box-shadow: 0 1px 8px rgba(245,166,35,0.1);
+  transition: width var(--transition-fast), opacity var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.services__card:hover .services__card-line {
   width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  background: rgba(245, 166, 35, 0.1);
-  color: var(--color-primary);
-  font-size: 1.3rem;
+  opacity: 1;
+  box-shadow: 0 1px 14px rgba(245,166,35,0.2);
 }
 
-.services__list-title {
+.services__card-title {
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 700;
-  margin-bottom: 0.25rem;
   color: var(--text-primary);
+  margin-bottom: 0.5rem;
 }
 
-.services__list-desc {
-  font-size: 0.85rem;
+.services__card-desc {
+  font-size: 0.88rem;
   color: var(--text-tertiary);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-@media (max-width: 1024px) {
-  .services__layout {
-    grid-template-columns: 1fr;
-  }
-  .services__image {
-    height: 400px;
-  }
+@media (max-width: 900px) {
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 650px) {
-  .services__grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 550px) {
+  .services__grid { grid-template-columns: 1fr; }
 }

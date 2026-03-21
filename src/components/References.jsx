@@ -1,16 +1,37 @@
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { HiOfficeBuilding, HiPresentationChartBar, HiGlobe, HiLocationMarker, HiStar, HiUserGroup } from 'react-icons/hi';
 import { useLang } from '../context/LanguageContext';
 import './References.css';
 
+function Counter({ target, suffix = '+', active }) {
+  const [count, setCount] = useState(0);
+  const frameRef = useRef(null);
+
+  useEffect(() => {
+    if (!active) return;
+    const duration = 2200;
+    const start = performance.now();
+    const animate = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) frameRef.current = requestAnimationFrame(animate);
+    };
+    frameRef.current = requestAnimationFrame(animate);
+    return () => { if (frameRef.current) cancelAnimationFrame(frameRef.current); };
+  }, [active, target]);
+
+  return <>{count.toLocaleString('tr-TR')}{suffix}</>;
+}
+
 const stats = [
-  { key: 'total', num: 1740, color: '#f97316', icon: <HiStar /> },
-  { key: 'events', num: 872, color: '#00aeef', icon: <HiPresentationChartBar /> },
-  { key: 'congress', num: 868, color: '#f5a623', icon: <HiOfficeBuilding /> },
-  { key: 'team', num: 62, color: '#14b8a6', icon: <HiUserGroup /> },
-  { key: 'international', num: 50, color: '#e0334c', icon: <HiGlobe /> },
-  { key: 'cities', num: 40, color: '#22c55e', icon: <HiLocationMarker /> },
+  { key: 'total', num: 1740 },
+  { key: 'events', num: 872 },
+  { key: 'congress', num: 868 },
+  { key: 'team', num: 62 },
+  { key: 'international', num: 50 },
+  { key: 'cities', num: 40 },
 ];
 
 export default function References() {
@@ -20,10 +41,16 @@ export default function References() {
   return (
     <section id="references" className="references section-padding">
       <div className="container" ref={ref}>
-        <motion.div className="references__header" initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }}>
-
+        <motion.div
+          className="references__header"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+        >
           <h2 className="section-title" style={{ textAlign: 'center' }}>{t('ref.title')}</h2>
-          <p className="section-subtitle" style={{ textAlign: 'center', maxWidth: '550px', margin: '0 auto' }}>{t('ref.desc')}</p>
+          <p className="section-subtitle" style={{ textAlign: 'center', maxWidth: '550px', margin: '0 auto' }}>
+            {t('ref.desc')}
+          </p>
         </motion.div>
 
         <div className="references__grid">
@@ -31,14 +58,14 @@ export default function References() {
             <motion.div
               key={stat.key}
               className="references__card"
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ delay: i * 0.1 + 0.2, duration: 0.6 }}
+              initial={{ opacity: 0, y: 24 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: i * 0.08 + 0.2, duration: 0.5 }}
             >
-              <div className="references__card-icon" style={{ color: stat.color, background: `${stat.color}12` }}>
-                {stat.icon}
-              </div>
-              <span className="references__card-num" style={{ color: stat.color }}>{stat.num}+</span>
+              <span className="references__card-num">
+                <Counter target={stat.num} active={inView} />
+              </span>
+              <div className="references__card-line" />
               <span className="references__card-label">{t(`ref.${stat.key}`)}</span>
             </motion.div>
           ))}
