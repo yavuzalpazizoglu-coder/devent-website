@@ -8,9 +8,9 @@
 
 .contact__layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  align-items: start;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
 }
 
 .contact__left {
@@ -69,15 +69,6 @@
   color: var(--text-primary);
 }
 
-.contact__map {
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid var(--border-subtle);
-}
-
-.contact__map iframe {
-  display: block;
-}
 
 /* Form */
 .contact__form {
