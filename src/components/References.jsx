@@ -19,7 +19,7 @@ export default function References() {
     <section id="references" className="references section-padding">
       <div className="container" ref={ref}>
         <motion.div className="references__header" initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }}>
-          <span className="section-label" style={{ justifyContent: 'center' }}>{t('ref.label')}</span>
+
           <h2 className="section-title" style={{ textAlign: 'center' }}>{t('ref.title')}</h2>
           <p className="section-subtitle" style={{ textAlign: 'center', maxWidth: '550px', margin: '0 auto' }}>{t('ref.desc')}</p>
         </motion.div>

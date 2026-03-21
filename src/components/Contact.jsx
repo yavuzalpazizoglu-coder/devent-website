@@ -29,7 +29,7 @@ export default function Contact() {
     <section id="contact" className="contact section-padding">
       <div className="container" ref={ref}>
         <motion.div className="contact__header" initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }}>
-          <span className="section-label">{t('contact.label')}</span>
+
           <h2 className="section-title">
             {t('contact.title1')} <span style={{ color: 'var(--color-primary)' }}>{t('contact.titleAccent')}</span>
           </h2>

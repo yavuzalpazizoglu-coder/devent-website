@@ -20,7 +20,7 @@ export default function Workflow() {
     <section className="workflow section-padding">
       <div className="container" ref={ref}>
         <motion.div className="workflow__header" initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }}>
-          <span className="section-label" style={{ justifyContent: 'center' }}>{t('workflow.label')}</span>
+
           <h2 className="section-title" style={{ textAlign: 'center' }}>{t('workflow.title')}</h2>
           <p className="section-subtitle" style={{ textAlign: 'center', maxWidth: '650px', margin: '0 auto' }}>{t('workflow.desc')}</p>
         </motion.div>

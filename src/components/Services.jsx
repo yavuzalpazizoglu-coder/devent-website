@@ -31,7 +31,7 @@ export default function Services() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <span className="section-label" style={{ justifyContent: 'center' }}>{t('services.label')}</span>
+
           <h2 className="section-title" style={{ textAlign: 'center' }}>{t('services.title')}</h2>
           <p className="section-subtitle" style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
             {t('services.desc')}

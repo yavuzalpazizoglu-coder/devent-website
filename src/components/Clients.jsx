@@ -26,7 +26,7 @@ export default function Clients() {
     <section className="clients section-padding">
       <div className="container" ref={ref}>
         <motion.div className="clients__header" initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}>
-          <span className="section-label" style={{ justifyContent: 'center' }}>{t('clients.label')}</span>
+
         </motion.div>
 
         <div className="clients__grid">

@@ -22,7 +22,7 @@ export default function About() {
           </div>
 
           <div className="about__content">
-            <span className="section-label">{t('about.label')}</span>
+
             <h2 className="section-title">{t('about.title')}</h2>
             <p className="about__desc">{t('about.desc')}</p>
 
