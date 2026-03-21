@@ -17,6 +17,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  justify-content: center;
 }
 
 .contact__cards {
@@ -28,11 +29,12 @@
 .contact__card {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
+  gap: 1.25rem;
+  padding: 1.5rem 1.75rem;
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  transition: border-color var(--transition-fast);
+  border-radius: 16px;
+  background: var(--bg-card);
+  transition: all var(--transition-smooth);
 }
 
 .contact__card:hover {
@@ -52,17 +54,17 @@
 
 .contact__card-label {
   display: block;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--text-tertiary);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.1rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.2rem;
 }
 
 .contact__card-value {
   display: block;
-  font-size: 0.88rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: var(--text-primary);
 }
@@ -79,7 +81,10 @@
 
 /* Form */
 .contact__form {
-  padding: 2rem;
+  padding: 2.5rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  background: var(--bg-card);
 }
 
 .contact__form-title {
@@ -109,17 +114,17 @@
   letter-spacing: 0.05em;
 }
 
-.contact__field input,
-.contact__field textarea {
+.contact__input,
+.contact__textarea {
   width: 100%;
-  padding: 0.75rem 1rem;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255,255,255,0.03);
   border: 1px solid var(--border-subtle);
-  border-radius: 10px;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
   color: var(--text-primary);
-  font-size: 0.88rem;
   font-family: var(--font-body);
-  transition: border-color var(--transition-fast);
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
 }
 
 .contact__field input:focus,

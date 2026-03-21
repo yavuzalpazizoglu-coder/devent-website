@@ -74,7 +74,12 @@ ul, ol { list-style: none; }
 }
 
 /* ── Section helpers ── */
-.section-padding { padding: var(--section-padding); }
+.section-padding { 
+  padding: var(--section-padding); 
+  min-height: 100vh;
+  display: flex;
+  align-items: center; 
+}
 
 .section-label {
   display: inline-flex;
