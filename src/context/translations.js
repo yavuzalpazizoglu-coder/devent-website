@@ -7,6 +7,7 @@ export const translations = {
     'nav.contact': 'İletişim',
     'nav.cta': 'Teklif Alın',
     'nav.digitalCenter': 'Dijital İşlem Merkezi',
+    'nav.hotelCenter': 'Otel Teklif Platformu',
     // Hero
     'hero.title1': 'Her Zaman',
     'hero.titleAccent': 'Planladığınız',
@@ -132,6 +133,7 @@ export const translations = {
     'nav.contact': 'Contact',
     'nav.cta': 'Get a Quote',
     'nav.digitalCenter': 'Digital Center',
+    'nav.hotelCenter': 'Hotel Offer Platform',
     // Hero
     'hero.title1': 'Always',
     'hero.titleAccent': 'As You',

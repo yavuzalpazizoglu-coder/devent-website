@@ -25,23 +25,19 @@ export default function Projects() {
         </motion.div>
 
         <div className="projects__layout">
-          <div className="projects__grid">
-            {values.map((val, i) => (
-              <motion.div
-                key={val.key}
-                className="projects__card"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: i * 0.1 + 0.2, duration: 0.6 }}
-              >
-                <div className="projects__card-icon" style={{ color: val.color, background: `${val.color}12` }}>
-                  {val.icon}
+          <motion.div className="projects__content" initial={{ opacity: 0, x: 40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.15, duration: 0.7 }}>
+            <div className="projects__list">
+              {values.map((val, i) => (
+                <div key={val.key} className="projects__list-item">
+                  <div className="projects__list-icon" style={{ color: val.color, background: `${val.color}12` }}>{val.icon}</div>
+                  <div className="projects__list-text">
+                    <h4 className="projects__list-title">{t(`${val.key}.title`)}</h4>
+                    <p className="projects__list-desc">{t(`${val.key}.desc`)}</p>
+                  </div>
                 </div>
-                <h3 className="projects__card-title">{t(`${val.key}.title`)}</h3>
-                <p className="projects__card-desc">{t(`${val.key}.desc`)}</p>
-              </motion.div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </motion.div>
 
           <motion.div 
             className="projects__image-container"

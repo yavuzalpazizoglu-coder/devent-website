@@ -39,32 +39,23 @@ export default function Services() {
         </motion.div>
 
         <div className="services__layout">
-          <motion.div 
-            className="services__image-container"
-            initial={{ opacity: 0, x: -40 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.2, duration: 0.8 }}
-          >
+          <motion.div className="services__image-wrap" initial={{ opacity: 0, x: -40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.15, duration: 0.7 }}>
             <img src="/images/linkedin/oncology-stage.jpg" alt="Kongre ve Etkinlik Yönetimi" className="services__image" loading="lazy" />
           </motion.div>
 
-          <div className="services__grid">
-            {services.map((svc, i) => (
-              <motion.div
-                key={svc.title}
-                className="services__card glass-card"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: i * 0.08 + 0.3, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <div className="services__card-icon" style={{ color: svc.color, background: `${svc.color}12` }}>
-                  {svc.icon}
+          <motion.div className="services__content" initial={{ opacity: 0, x: 40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.15, duration: 0.7 }}>
+            <div className="services__list">
+              {services.map((svc, i) => (
+                <div key={svc.title} className="services__list-item">
+                  <div className="services__list-icon" style={{ color: svc.color }}>{svc.icon}</div>
+                  <div className="services__list-text">
+                    <h4 className="services__list-title">{svc.title}</h4>
+                    <p className="services__list-desc">{svc.desc}</p>
+                  </div>
                 </div>
-                <h3 className="services__card-title">{svc.title}</h3>
-                <p className="services__card-desc">{svc.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

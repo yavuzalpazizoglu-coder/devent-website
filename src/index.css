@@ -140,6 +140,30 @@ ul, ol { list-style: none; }
   box-shadow: 0 8px 30px rgba(245, 166, 35, 0.25);
 }
 
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, var(--color-blue), #0077b6);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 15px rgba(0, 174, 239, 0.2);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 174, 239, 0.4);
+  filter: brightness(1.1);
+}
+
 .btn-outline {
   display: inline-flex;
   align-items: center;
