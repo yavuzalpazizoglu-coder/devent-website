@@ -8,8 +8,8 @@
 
 .references__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
 .references__card {
@@ -57,9 +57,10 @@
 .references__card-num {
   display: block;
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 800;
   margin-bottom: 0.25rem;
+  letter-spacing: -0.03em;
 }
 
 .references__card-label {
@@ -68,10 +69,10 @@
   font-weight: 500;
 }
 
-@media (max-width: 768px) {
-  .references__grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-  .references__card { padding: 2rem 1rem; }
-  .references__card-num { font-size: 2rem; }
+@media (max-width: 900px) {
+  .references__grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .references__card { padding: 2.5rem 1.5rem; }
+  .references__card-num { font-size: 2.5rem; }
 }
 
 @media (max-width: 480px) {

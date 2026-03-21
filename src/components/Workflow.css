@@ -16,11 +16,13 @@
 .workflow__timeline::before {
   content: '';
   position: absolute;
-  top: 48px;
+  top: 30px;
   left: 10%;
   right: 10%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--border-hover), transparent);
+  height: 4px;
+  background: var(--border-glass);
+  border-radius: 4px;
+  z-index: 0;
 }
 
 .workflow__step {
@@ -39,16 +41,17 @@
 }
 
 .workflow__step-icon {
-  width: 52px;
-  height: 52px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
-  border-radius: 14px;
-  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  box-shadow: 0 0 0 6px var(--bg-secondary);
 }
 
 .workflow__step-title {

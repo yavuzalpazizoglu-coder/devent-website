@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { HiOfficeBuilding, HiPresentationChartBar, HiGlobe, HiLocationMarker } from 'react-icons/hi';
+import { HiOfficeBuilding, HiPresentationChartBar, HiGlobe, HiLocationMarker, HiStar, HiUserGroup } from 'react-icons/hi';
 import { useLang } from '../context/LanguageContext';
 import './References.css';
 
 const stats = [
-  { key: 'congress', num: 868, color: '#f5a623', icon: <HiOfficeBuilding /> },
+  { key: 'total', num: 1740, color: '#f97316', icon: <HiStar /> },
   { key: 'events', num: 872, color: '#00aeef', icon: <HiPresentationChartBar /> },
-  { key: 'international', num: 45, color: '#e0334c', icon: <HiGlobe /> },
-  { key: 'cities', num: 30, color: '#22c55e', icon: <HiLocationMarker /> },
+  { key: 'congress', num: 868, color: '#f5a623', icon: <HiOfficeBuilding /> },
+  { key: 'team', num: 62, color: '#14b8a6', icon: <HiUserGroup /> },
+  { key: 'international', num: 50, color: '#e0334c', icon: <HiGlobe /> },
+  { key: 'cities', num: 40, color: '#22c55e', icon: <HiLocationMarker /> },
 ];
 
 export default function References() {
