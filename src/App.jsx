@@ -7,6 +7,7 @@ import Workflow from './components/Workflow';
 import References from './components/References';
 import Projects from './components/Gallery';
 import Contact from './components/Contact';
+import Partners from './components/Partners'; // Added import for Partners
 import Footer from './components/Footer';
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <Projects />
         <Contact />
       </main>
+      <Partners /> {/* Added Partners component */}
       <Footer />
     </LanguageProvider>
   );

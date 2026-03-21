@@ -3,20 +3,20 @@
 }
 
 .contact__header {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .contact__layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
+  gap: 2rem;
   align-items: start;
 }
 
 .contact__left {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .contact__cards {
@@ -29,7 +29,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem 1.25rem;
+  padding: 0.75rem 1rem;
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
   transition: border-color var(--transition-fast);
@@ -57,7 +57,7 @@
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0;
 }
 
 .contact__card-value {
@@ -79,7 +79,7 @@
 
 /* Form */
 .contact__form {
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .contact__form-title {
@@ -96,7 +96,7 @@
 }
 
 .contact__field {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .contact__field label {
