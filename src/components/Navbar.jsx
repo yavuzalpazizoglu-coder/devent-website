@@ -63,7 +63,7 @@ export default function Navbar() {
             >
               <HiOutlineDesktopComputer style={{ fontSize: '1.2rem', flexShrink: 0 }} />
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: '1.2', flexShrink: 0 }}>
-                 <span style={{ fontSize: '0.55rem', opacity: 0.9, fontWeight: '600', letterSpacing: '0.02em', textTransform: 'uppercase' }}>Müşterilerimize Özel</span>
+                 <span style={{ fontSize: '0.55rem', opacity: 0.9, fontWeight: '600', letterSpacing: '0.02em', textTransform: 'uppercase' }}>{t('nav.digitalCenter.sub')}</span>
                  <span style={{ fontSize: '0.75rem', fontWeight: '700', whiteSpace: 'nowrap' }}>{t('nav.digitalCenter')}</span>
               </div>
             </a>
@@ -77,7 +77,7 @@ export default function Navbar() {
             >
               <HiOutlineDesktopComputer style={{ fontSize: '1.2rem', flexShrink: 0 }} />
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: '1.2', flexShrink: 0 }}>
-                 <span style={{ fontSize: '0.55rem', opacity: 0.9, fontWeight: '600', letterSpacing: '0.02em', textTransform: 'uppercase' }}>Otel Partnerlerimize Özel</span>
+                 <span style={{ fontSize: '0.55rem', opacity: 0.9, fontWeight: '600', letterSpacing: '0.02em', textTransform: 'uppercase' }}>{t('nav.hotelCenter.sub')}</span>
                  <span style={{ fontSize: '0.75rem', fontWeight: '700', whiteSpace: 'nowrap' }}>{t('nav.hotelCenter')}</span>
               </div>
             </a>

@@ -5,9 +5,10 @@ export const translations = {
     'nav.services': 'Kongre & Etkinlik Yönetimi',
     'nav.projects': 'Farkımız',
     'nav.contact': 'İletişim',
-    'nav.cta': 'Teklif Alın',
     'nav.digitalCenter': 'Dijital İşlem Merkezi',
+    'nav.digitalCenter.sub': 'Müşterilerimize Özel',
     'nav.hotelCenter': 'Otel Teklif Platformu',
+    'nav.hotelCenter.sub': 'Otel Partnerlerimize Özel',
     // Hero
     'hero.title1': 'Her Zaman',
     'hero.titleAccent': 'Planladığınız',
@@ -131,9 +132,10 @@ export const translations = {
     'nav.services': 'Congress & Event Management',
     'nav.projects': 'Our Difference',
     'nav.contact': 'Contact',
-    'nav.cta': 'Get a Quote',
     'nav.digitalCenter': 'Digital Center',
+    'nav.digitalCenter.sub': 'Exclusive for Clients',
     'nav.hotelCenter': 'Hotel Offer Platform',
+    'nav.hotelCenter.sub': 'Exclusive for Hotel Partners',
     // Hero
     'hero.title1': 'Always',
     'hero.titleAccent': 'As You',
