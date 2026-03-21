@@ -15,9 +15,33 @@ export default function Footer() {
   const scrollTo = (href) => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
 
   const footerLinks = [
-    { title: t('footer.col1'), links: lang === 'tr' ? ['Hakkımızda', 'Ekibimiz', 'Kariyer', 'Blog'] : ['About Us', 'Our Team', 'Careers', 'Blog'] },
-    { title: t('footer.col2'), links: lang === 'tr' ? ['Kongre Yönetimi', 'Etkinlik Planlama', 'Dijital Çözümler', 'Lojistik'] : ['Congress Management', 'Event Planning', 'Digital Solutions', 'Logistics'] },
-    { title: t('footer.col3'), links: lang === 'tr' ? ['Gizlilik Politikası', 'Kullanım Koşulları', 'KVKK', 'Çerez Politikası'] : ['Privacy Policy', 'Terms of Use', 'GDPR', 'Cookie Policy'] },
+    { 
+      title: t('footer.col1'), 
+      items: [
+        { label: t('nav.about'), href: '#about' },
+        { label: t('nav.projects'), href: '#projects' },
+        { label: t('ref.label'), href: '#references' },
+        { label: t('nav.contact'), href: '#contact' },
+      ]
+    },
+    { 
+      title: t('footer.col2'), 
+      items: [
+        { label: t('svc1.title'), href: '#services' },
+        { label: t('svc2.title'), href: '#services' },
+        { label: t('svc3.title'), href: '#services' },
+        { label: t('svc6.title'), href: '#services' },
+      ]
+    },
+    { 
+      title: t('footer.col3'), 
+      items: [
+        { label: lang === 'tr' ? 'Gizlilik Politikası' : 'Privacy Policy', href: '#' },
+        { label: lang === 'tr' ? 'Kullanım Koşulları' : 'Terms of Use', href: '#' },
+        { label: lang === 'tr' ? 'KVKK' : 'GDPR', href: '#' },
+        { label: lang === 'tr' ? 'Çerez Politikası' : 'Cookie Policy', href: '#' },
+      ]
+    },
   ];
 
   return (
@@ -53,8 +77,17 @@ export default function Footer() {
             <div key={col.title} className="footer__col">
               <h4 className="footer__col-title">{col.title}</h4>
               <ul className="footer__col-links">
-                {col.links.map((link) => (
-                  <li key={link}><a href="#">{link}</a></li>
+                {col.items.map((item) => (
+                  <li key={item.label}>
+                    <a href={item.href} onClick={(e) => {
+                      if (item.href !== '#') {
+                        e.preventDefault();
+                        scrollTo(item.href);
+                      }
+                    }}>
+                      {item.label}
+                    </a>
+                  </li>
                 ))}
               </ul>
             </div>

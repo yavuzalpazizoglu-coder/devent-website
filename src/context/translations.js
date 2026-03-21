@@ -113,10 +113,10 @@ export const translations = {
     'contact.form.success.desc': 'En kısa sürede dönüş yapacağız.',
 
     // Footer
-    'footer.cta.title1': 'Hayalinizi',
-    'footer.cta.accent': 'Gerçeğe',
-    'footer.cta.title2': 'Dönüştürelim',
-    'footer.cta.btn': 'Projenizi Başlatın →',
+    'footer.cta.title1': 'Bir Sonraki',
+    'footer.cta.accent': 'Etkinliğinizi',
+    'footer.cta.title2': 'Birlikte Planlayalım',
+    'footer.cta.btn': 'Teklif Alın →',
     'footer.desc': "Etkinlik ve kongre yönetiminde Türkiye'nin güvenilir çözüm ortağı.",
     'footer.col1': 'Şirket',
     'footer.col2': 'Hizmetler',
@@ -239,10 +239,10 @@ export const translations = {
     'contact.form.success.desc': 'We will get back to you shortly.',
 
     // Footer
-    'footer.cta.title1': 'Turn Your',
-    'footer.cta.accent': 'Vision',
-    'footer.cta.title2': 'Into Reality',
-    'footer.cta.btn': 'Start Your Project →',
+    'footer.cta.title1': "Let's Plan Your",
+    'footer.cta.accent': 'Next Event',
+    'footer.cta.title2': 'Together',
+    'footer.cta.btn': 'Get a Quote →',
     'footer.desc': "Turkey's reliable solution partner in event and congress management.",
     'footer.col1': 'Company',
     'footer.col2': 'Services',
