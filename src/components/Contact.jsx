@@ -31,16 +31,13 @@ export default function Contact() {
         <motion.div className="contact__header" initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }}>
 
           <h2 className="section-title">
-            {t('contact.title1')} <span style={{ color: 'var(--color-primary)' }}>{t('contact.titleAccent')}</span>
+            {t('contact.title')}
           </h2>
           <p className="section-subtitle">{t('contact.desc')}</p>
         </motion.div>
 
         <div className="contact__layout">
           <motion.div className="contact__left" initial={{ opacity: 0, x: -40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.15, duration: 0.7 }}>
-            <div className="contact__image" style={{ width: '100%', height: '260px', borderRadius: '16px', overflow: 'hidden', marginBottom: '2rem', boxShadow: '0 4px 24px rgba(0,0,0,0.2)', position: 'relative' }}>
-               <img src="/images/linkedin/republic-event.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'} alt="İletişim" />
-            </div>
             <div className="contact__cards" style={{ marginBottom: '2rem' }}>
               {contactInfo.map((item) => (
                 <div key={item.label} className="contact__card">

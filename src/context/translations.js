@@ -87,8 +87,7 @@ export const translations = {
 
     // Contact
     'contact.label': 'İletişim',
-    'contact.title1': 'Bize',
-    'contact.titleAccent': 'Ulaşın',
+    'contact.title': 'İletişim',
     'contact.desc': 'Etkinlik ve Kongre Yönetimi projelerimiz, teknoloji çözümlerimiz ve hizmetlerimiz hakkında detaylı bilgi almak için dilediğiniz zaman bizimle iletişime geçebilirsiniz.',
     'contact.address.label': 'Adres',
     'contact.address': 'İçerenköy Mah. Çayır Cad. No:5 Bay Plaza No:25 K:12 34752 Ataşehir/İstanbul',
@@ -213,8 +212,7 @@ export const translations = {
 
     // Contact
     'contact.label': 'Contact',
-    'contact.title1': 'Get In',
-    'contact.titleAccent': 'Touch',
+    'contact.title': 'Contact',
     'contact.desc': 'You can contact us anytime to get detailed information about our Event and Congress Management projects, technology solutions, and services.',
     'contact.address.label': 'Address',
     'contact.address': 'İçerenköy Mah. Çayır Cad. No:5 Bay Plaza No:25 K:12 34752 Ataşehir/İstanbul',
