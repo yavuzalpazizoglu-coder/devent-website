@@ -5,8 +5,8 @@ import './Partners.css';
 const partners = [
   { name: 'T.C. Kültür ve Turizm Bakanlığı', logo: 'http://devent.com.tr/wp-content/uploads/2025/12/t.c.kultur-bakanligi-2.png', url: 'https://ktb.gov.tr' },
   { name: 'TÜRSAB', logo: 'http://devent.com.tr/wp-content/uploads/2025/12/tursab-2.png', url: 'https://tursab.org.tr' },
-  { name: 'ICVB Istanbul', logo: 'http://devent.com.tr/wp-content/uploads/2025/12/istanbul-2.png', url: 'https://icvb.org.tr' },
-  { name: 'SITE Turkey', logo: 'http://devent.com.tr/wp-content/uploads/2025/12/site-turkey-2.png', url: 'https://site-turkey.org' }
+  { name: 'ICVB Istanbul', logo: 'http://devent.com.tr/wp-content/uploads/2025/12/istanbul-2.png', url: 'https://icvb.org' },
+  { name: 'SITE Global', logo: 'http://devent.com.tr/wp-content/uploads/2025/12/site-turkey-2.png', url: 'https://siteglobal.com' }
 ];
 
 export default function Partners() {
