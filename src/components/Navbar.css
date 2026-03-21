@@ -28,7 +28,7 @@
 }
 
 .navbar__logo-img {
-  height: 85px;
+  height: 65px;
   width: auto;
   filter: brightness(1.2) contrast(1.1) drop-shadow(0 4px 12px rgba(255, 255, 255, 0.15));
   transition: all var(--transition-smooth);
@@ -41,11 +41,11 @@
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 
 .navbar__link {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-secondary);
   transition: color var(--transition-fast);

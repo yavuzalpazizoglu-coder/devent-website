@@ -53,18 +53,18 @@ export default function Navbar() {
             <span className="navbar__lang-divider">/</span>
             <span className={lang === 'en' ? 'navbar__lang-active' : ''}>EN</span>
           </button>
-          <div style={{ display: 'flex', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
             <a
               href="https://dijitalislemmerkezi.com/login"
               target="_blank"
               rel="noopener noreferrer"
               className="navbar__cta btn-primary"
-              style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '0.6rem 1.2rem' }}
+              style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '0.4rem 0.8rem', minWidth: '170px', justifyContent: 'center' }}
             >
-              <HiOutlineDesktopComputer style={{ fontSize: '1.4rem' }} />
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: '1.2' }}>
-                 <span style={{ fontSize: '0.6rem', opacity: 0.9, fontWeight: '500', letterSpacing: '0.05em' }}>D EVENT</span>
-                 <span style={{ fontSize: '0.85rem', fontWeight: '700' }}>{t('nav.digitalCenter')}</span>
+              <HiOutlineDesktopComputer style={{ fontSize: '1.2rem', flexShrink: 0 }} />
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: '1.2', flexShrink: 0 }}>
+                 <span style={{ fontSize: '0.55rem', opacity: 0.9, fontWeight: '600', letterSpacing: '0.02em', textTransform: 'uppercase' }}>Müşterilerimize Özel</span>
+                 <span style={{ fontSize: '0.75rem', fontWeight: '700', whiteSpace: 'nowrap' }}>{t('nav.digitalCenter')}</span>
               </div>
             </a>
             
@@ -73,12 +73,12 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="navbar__cta btn-secondary"
-              style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '0.6rem 1.2rem' }}
+              style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '0.4rem 0.8rem', minWidth: '170px', justifyContent: 'center' }}
             >
-              <HiOutlineDesktopComputer style={{ fontSize: '1.4rem' }} />
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: '1.2' }}>
-                 <span style={{ fontSize: '0.6rem', opacity: 0.9, fontWeight: '500', letterSpacing: '0.05em' }}>Otel İşlemleri</span>
-                 <span style={{ fontSize: '0.85rem', fontWeight: '700' }}>{t('nav.hotelCenter')}</span>
+              <HiOutlineDesktopComputer style={{ fontSize: '1.2rem', flexShrink: 0 }} />
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: '1.2', flexShrink: 0 }}>
+                 <span style={{ fontSize: '0.55rem', opacity: 0.9, fontWeight: '600', letterSpacing: '0.02em', textTransform: 'uppercase' }}>Otel Partnerlerimize Özel</span>
+                 <span style={{ fontSize: '0.75rem', fontWeight: '700', whiteSpace: 'nowrap' }}>{t('nav.hotelCenter')}</span>
               </div>
             </a>
           </div>
