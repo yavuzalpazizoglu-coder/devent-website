@@ -120,24 +120,24 @@
 }
 
 .footer__partner {
-  opacity: 0.45;
+  opacity: 0.85;
   transition: opacity 0.25s ease;
 }
 
 .footer__partner:hover {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .footer__partner-logo {
-  height: 32px;
+  height: 36px;
   width: auto;
   object-fit: contain;
-  filter: brightness(2) contrast(1.2) saturate(0);
+  filter: brightness(3) contrast(1.1) saturate(0);
   transition: filter 0.25s ease;
 }
 
 .footer__partner:hover .footer__partner-logo {
-  filter: brightness(2.5) contrast(1.3) saturate(0);
+  filter: brightness(3.5) contrast(1.2) saturate(0);
 }
 
 /* ── Bottom ── */
@@ -223,6 +223,6 @@
     flex-wrap: wrap;
   }
   .footer__partner-logo {
-    height: 26px;
+    height: 30px;
   }
 }

@@ -239,23 +239,23 @@
 }
 
 .contact__membership-item {
-  opacity: 0.5;
+  opacity: 0.85;
   transition: opacity 0.25s;
 }
 
 .contact__membership-item:hover {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .contact__membership-item img {
-  height: 32px;
+  height: 36px;
   width: auto;
   object-fit: contain;
-  filter: brightness(2) grayscale(100%);
+  filter: brightness(3) contrast(1.1) grayscale(100%);
 }
 
 .contact__membership-item:hover img {
-  filter: brightness(2.5) grayscale(80%);
+  filter: brightness(3.5) contrast(1.2) grayscale(80%);
 }
 
 @media (max-width: 768px) {
@@ -270,6 +270,6 @@
     gap: 1rem;
   }
   .contact__membership-item img {
-    height: 26px;
+    height: 30px;
   }
 }
