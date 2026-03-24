@@ -30,6 +30,8 @@ export default function Footer() {
   const platformLinks = [
     { label: t('nav.digitalCenter'), href: 'https://dijitalislemmerkezi.com/login' },
     { label: t('nav.hotelCenter'), href: 'https://devent-online.com/auth/login' },
+    { label: 'D Event Digital', href: 'https://deventdigital.com' },
+    { label: 'Vocal Digital Agency', href: 'https://vocal-dijital.com' },
   ];
 
   return (
