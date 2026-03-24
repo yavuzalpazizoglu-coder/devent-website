@@ -66,11 +66,16 @@
   max-width: 540px;
 }
 
-/* Ticker at bottom */
-.hero__ticker-wrap {
+/* Ticker at bottom → LinkedIn Cards */
+.hero__cards-wrap {
   position: relative;
   z-index: 3;
   width: 100%;
+}
+
+.hero__cta {
+  margin-top: 1.5rem;
+  display: inline-flex;
 }
 
 /* SVG tech grid — fades in at bottom */

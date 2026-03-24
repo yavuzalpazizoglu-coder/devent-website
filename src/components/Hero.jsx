@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLang } from '../context/LanguageContext';
-import NewsTicker from './NewsTicker';
+import LinkedInCards from './LinkedInCards';
 import './Hero.css';
 
 const titleVariants = {
@@ -28,7 +28,7 @@ export default function Hero() {
   return (
     <section id="hero" className="hero">
       <div className="hero__video-wrap">
-        <video className="hero__video" autoPlay loop muted playsInline poster="/images/hero.png">
+        <video className="hero__video" autoPlay loop muted playsInline>
           <source src="/video/hero.mp4" type="video/mp4" />
         </video>
         <div className="hero__video-overlay" />
@@ -73,16 +73,27 @@ export default function Hero() {
           >
             {t('hero.desc')}
           </motion.p>
+
+          <motion.a
+            href="#services"
+            className="hero__cta btn-primary"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.1 }}
+            onClick={(e) => { e.preventDefault(); document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' }); }}
+          >
+            {t('hero.cta')}
+          </motion.a>
         </div>
       </div>
 
       <motion.div
-        className="hero__ticker-wrap"
+        className="hero__cards-wrap"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.2 }}
+        transition={{ duration: 0.8, delay: 1.3 }}
       >
-        <NewsTicker />
+        <LinkedInCards />
       </motion.div>
     </section>
   );

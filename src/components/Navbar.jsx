@@ -1,21 +1,29 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiMenuAlt3, HiX, HiSun, HiMoon } from 'react-icons/hi';
 import { useLang } from '../context/LanguageContext';
-import { useTheme } from '../context/ThemeContext';
 import './Navbar.css';
+
+const MenuIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+    <path d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+);
+const CloseIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+    <path d="M6 6l12 12M18 6L6 18" />
+  </svg>
+);
 
 export default function Navbar() {
   const { lang, toggleLang, t } = useLang();
-  const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const links = [
-    { label: t('nav.references') || 'Rakamlarla D Event', href: '#references' },
     { label: t('nav.about'), href: '#about' },
     { label: t('nav.services'), href: '#services' },
-    { label: t('nav.projects'), href: '#projects' },
+    { label: t('nav.online'), href: '#online-services' },
+    { label: t('nav.journey'), href: '#timeline' },
     { label: t('nav.contact'), href: '#contact' },
   ];
 
@@ -60,9 +68,6 @@ export default function Navbar() {
         </div>
 
         <div className="navbar__right">
-          <button className="navbar__theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-            {theme === 'dark' ? <HiSun /> : <HiMoon />}
-          </button>
           <button className="navbar__lang" onClick={toggleLang} aria-label="Change language">
             <span className={lang === 'tr' ? 'navbar__lang-active' : ''}>TR</span>
             <span className="navbar__lang-divider">/</span>
@@ -91,7 +96,7 @@ export default function Navbar() {
         </div>
 
         <button className="navbar__toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
-          {menuOpen ? <HiX /> : <HiMenuAlt3 />}
+          {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
       </div>
 
@@ -127,9 +132,6 @@ export default function Navbar() {
               ))}
 
               <div className="navbar__mobile-actions">
-                <button className="navbar__theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-                  {theme === 'dark' ? <HiSun /> : <HiMoon />}
-                </button>
                 <button className="navbar__lang" onClick={toggleLang}>
                   <span className={lang === 'tr' ? 'navbar__lang-active' : ''}>TR</span>
                   <span className="navbar__lang-divider">/</span>

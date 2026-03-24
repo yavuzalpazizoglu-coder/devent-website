@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiArrowUp } from 'react-icons/hi';
 import './ScrollProgress.css';
 
 export default function ScrollProgress() {
@@ -13,7 +12,7 @@ export default function ScrollProgress() {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrolled = docHeight > 0 ? scrollTop / docHeight : 0;
       setProgress(scrolled);
-      setShowTop(scrollTop > 600);
+      setShowTop(scrollTop > 300);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -53,7 +52,9 @@ export default function ScrollProgress() {
                 style={{ transition: 'stroke-dashoffset 0.1s linear' }}
               />
             </svg>
-            <HiArrowUp className="back-to-top__icon" />
+            <svg className="back-to-top__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 19V5M5 12l7-7 7 7" />
+            </svg>
           </motion.button>
         )}
       </AnimatePresence>

@@ -5,9 +5,9 @@ import './Services.css';
 
 export default function Services() {
   const { t } = useLang();
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [ref, inView] = useInView({ threshold: 0.05, triggerOnce: true });
 
-  const services = [1, 2, 3, 4, 5, 6].map(i => ({
+  const services = [1, 2, 3, 4, 5, 6, 7, 8].map(i => ({
     num: String(i).padStart(2, '0'),
     title: t(`svc${i}.title`),
     desc: t(`svc${i}.desc`),
@@ -23,7 +23,8 @@ export default function Services() {
           transition={{ duration: 0.7 }}
         >
           <h2 className="section-title" style={{ textAlign: 'center' }}>{t('services.title')}</h2>
-          <p className="section-subtitle" style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto' }}>
+          <p className="services__intro">{t('services.intro')}</p>
+          <p className="section-subtitle" style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto' }}>
             {t('services.desc')}
           </p>
         </motion.div>
@@ -32,15 +33,16 @@ export default function Services() {
           {services.map((svc, i) => (
             <motion.div
               key={svc.num}
-              className="services__card"
-              initial={{ opacity: 0, y: 24 }}
+              className="services__item"
+              initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.08 + 0.2, duration: 0.5 }}
+              transition={{ delay: i * 0.04 + 0.2, duration: 0.4 }}
             >
-              <span className="services__card-num">{svc.num}</span>
-              <div className="services__card-line" />
-              <h4 className="services__card-title">{svc.title}</h4>
-              <p className="services__card-desc">{svc.desc}</p>
+              <span className="services__item-num">{svc.num}</span>
+              <div className="services__item-content">
+                <h4 className="services__item-title">{svc.title}</h4>
+                <p className="services__item-desc">{svc.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>

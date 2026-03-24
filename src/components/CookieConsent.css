@@ -286,43 +286,6 @@
   opacity: 0.4;
 }
 
-/* ── Light theme ── */
-[data-theme="light"] .cookie-overlay {
-  background: rgba(0, 0, 0, 0.35);
-}
-
-[data-theme="light"] .cookie-modal__inner {
-  background: #fff;
-  border-color: rgba(0, 0, 0, 0.08);
-  box-shadow:
-    0 24px 64px rgba(0, 0, 0, 0.12),
-    0 8px 20px rgba(0, 0, 0, 0.06);
-}
-
-[data-theme="light"] .cookie-cat {
-  background: linear-gradient(165deg, #f8f9fc 0%, #f4f5f8 100%);
-  border-color: rgba(0, 0, 0, 0.06);
-}
-
-[data-theme="light"] .cookie-toggle__track {
-  background: rgba(0, 0, 0, 0.08);
-  border-color: rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="light"] .cookie-toggle__track::after {
-  background: #999;
-}
-
-[data-theme="light"] .cookie-btn--secondary {
-  background: rgba(0, 0, 0, 0.04);
-  border-color: rgba(0, 0, 0, 0.1);
-  color: #333;
-}
-
-[data-theme="light"] .cookie-btn--secondary:hover {
-  background: rgba(0, 0, 0, 0.08);
-}
-
 /* ── Responsive ── */
 @media (max-width: 600px) {
   .cookie-modal {

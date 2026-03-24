@@ -1,15 +1,22 @@
 import { useLang } from '../context/LanguageContext';
 import './Footer.css';
 
+const partners = [
+  { name: 'T.C. Kültür ve Turizm Bakanlığı', logo: 'http://devent.com.tr/wp-content/uploads/2025/12/t.c.kultur-bakanligi-2.png', url: 'https://ktb.gov.tr' },
+  { name: 'TÜRSAB', logo: 'http://devent.com.tr/wp-content/uploads/2025/12/tursab-2.png', url: 'https://tursab.org.tr' },
+  { name: 'ICVB Istanbul', logo: 'http://devent.com.tr/wp-content/uploads/2025/12/istanbul-2.png', url: 'https://icvb.org' },
+  { name: 'SITE Turkey', logo: 'http://devent.com.tr/wp-content/uploads/2025/12/site-turkey-2.png', url: 'https://siteglobal.com' },
+];
+
 export default function Footer() {
   const { t } = useLang();
   const scrollTo = (href) => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
 
   const siteMap = [
-    { label: t('nav.references'), href: '#references' },
     { label: t('nav.about'), href: '#about' },
     { label: t('nav.services'), href: '#services' },
-    { label: t('nav.projects'), href: '#projects' },
+    { label: t('nav.online'), href: '#online-services' },
+    { label: t('nav.journey'), href: '#timeline' },
     { label: t('nav.contact'), href: '#contact' },
   ];
 
@@ -29,14 +36,13 @@ export default function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer__grid">
-          {/* Brand */}
           <div className="footer__col footer__col--brand">
             <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
               <img src="/images/logo.png" alt="D Event" className="footer__logo-img" />
             </a>
             <p className="footer__brand-desc">{t('footer.desc')}</p>
             <div className="footer__social">
-              <a href="https://www.linkedin.com/company/2784340/" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/d-event-turizm-organizasyon" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="LinkedIn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
               </a>
               <a href="https://www.instagram.com/deventsocial/" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="Instagram">
@@ -51,7 +57,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Site Map */}
           <div className="footer__col">
             <h4 className="footer__col-title">{t('footer.col1')}</h4>
             {siteMap.map(link => (
@@ -61,7 +66,6 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Platforms */}
           <div className="footer__col">
             <h4 className="footer__col-title">{t('footer.col2')}</h4>
             {platformLinks.map(link => (
@@ -71,7 +75,6 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Legal */}
           <div className="footer__col">
             <h4 className="footer__col-title">{t('footer.col3')}</h4>
             {legalLinks.map(link => (
@@ -82,7 +85,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom — copyright & legal */}
+        {/* Bottom */}
         <div className="footer__bottom">
           <p>© {new Date().getFullYear()} {t('footer.company')}</p>
           <div className="footer__bottom-legal">
