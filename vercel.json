@@ -2,12 +2,6 @@
   "framework": "vite",
   "buildCommand": "vite build",
   "outputDirectory": "dist",
-  "git": {
-    "deploymentEnabled": {
-      "main": true,
-      "gh-pages": false
-    }
-  },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" }
   ]
