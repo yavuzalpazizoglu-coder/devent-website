@@ -17,7 +17,7 @@ export const translations = {
     'about.p4': 'Her projede aynı titizlikle çalışır, her detayı önceden planlar, başarıyla sonuçlandırırız.',
 
     // Services
-    'services.title': 'Kongre & Etkinlik Yönetimi',
+    'services.title': 'Kongre – Etkinlik Yönetimi',
     'services.intro': 'Sıfır hata. Maksimum verimlilik.',
     'services.desc': 'Etkinlik ve kongrelerin proje ve operasyon yönetiminden finansmanına, risk yönetimine, konaklama, ulaşım ve sosyal aktivite yönetimi olmak üzere tüm süreçlerin tasarım, planlama ve uygulamasını gerçekleştiriyoruz.',
     'svc1.title': 'Konaklama Hizmetleri',
@@ -38,7 +38,7 @@ export const translations = {
     'svc8.desc': 'B planı hazır olmadan A planını başlatmayız.',
 
     // Online Services
-    'online.title': 'Online Servisler',
+    'online.title': 'Dijital Servisler',
     'online.tagline': 'Etkinlikleri teknoloji ile buluşturuyoruz.',
     'online.desc': 'Etkinlik yönetiminin kritik süreçlerini dijitalleştirerek operasyonlarınızı hızlandıran ve şeffaflaştıran teknoloji çözümleri üretiyoruz.',
     'online.otp.name': 'Otel Teklif Platformu',
@@ -133,7 +133,7 @@ export const translations = {
     'about.p4': 'We work with the same precision on every project, plan every detail in advance, and deliver successful outcomes.',
 
     // Services
-    'services.title': 'Congress & Event Management',
+    'services.title': 'Congress – Event Management',
     'services.intro': 'Zero error. Maximum efficiency.',
     'services.desc': 'From project and operations management to finance and risk management of events and congresses, we carry out the design, planning, and execution of all processes including accommodation, transportation, and social activity management.',
     'svc1.title': 'Accommodation Services',
@@ -154,7 +154,7 @@ export const translations = {
     'svc8.desc': 'We never launch Plan A without Plan B ready.',
 
     // Online Services
-    'online.title': 'Online Services',
+    'online.title': 'Digital Services',
     'online.tagline': 'Bringing events together with technology.',
     'online.desc': 'We produce technology solutions that digitize critical processes of event management, accelerating and bringing transparency to your operations.',
     'online.otp.name': 'Hotel Offer Platform',
