@@ -72,11 +72,12 @@
 
 /* ── Layout: info only (form removed) ── */
 .contact__info--centered {
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 /* ── Info column ── */
@@ -86,6 +87,15 @@
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.contact__details {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  text-align: left;
 }
 
 .contact__detail {
@@ -120,6 +130,7 @@
   padding-top: 1.5rem;
   border-top: 1px solid var(--border-subtle);
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .contact__social-link {
@@ -235,6 +246,7 @@
   align-items: center;
   gap: 1.5rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .contact__membership-item {
