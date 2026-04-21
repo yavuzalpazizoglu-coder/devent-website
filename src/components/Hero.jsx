@@ -23,7 +23,6 @@ export default function Hero() {
 
   const line1Words = t('hero.title1').split(' ');
   const accentWords = t('hero.titleAccent').split(' ');
-  const line3Words = t('hero.title2') ? t('hero.title2').split(' ') : [];
 
   return (
     <section id="hero" className="hero">
@@ -53,16 +52,6 @@ export default function Hero() {
                 {w}{' '}
               </motion.span>
             ))}
-            {line3Words.length > 0 && (
-              <>
-                <br />
-                {line3Words.map((w, i) => (
-                  <motion.span key={`l3-${i}`} variants={wordVariant} className="hero__word">
-                    {w}{' '}
-                  </motion.span>
-                ))}
-              </>
-            )}
           </motion.h1>
         </div>
       </div>
