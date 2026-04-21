@@ -4,10 +4,10 @@ import { useLang } from '../context/LanguageContext';
 import './OnlineServices.css';
 
 const platforms = [
-  { key: 'otp', url: 'https://devent-online.com', color: '#f5a623', label: 'Otel Teklif Platformu', logo: '/images/logo.png' },
-  { key: 'dim', url: 'https://dijitalislemmerkezi.com', color: '#00aeef', label: 'Dijital İşlem Merkezi', logo: '/images/logo.png' },
-  { key: 'digital', url: 'https://deventdigital.com', color: '#e0334c', label: 'D Event Digital', logo: '/images/logo.png' },
-  { key: 'vocal', url: 'https://vocal-dijital.com', color: '#8e44ad', label: 'Vocal Digital Agency', logo: '/images/vocal-logo.png' },
+  { key: 'otp', url: 'https://devent-online.com', color: '#f5a623', logo: '/images/logo.png' },
+  { key: 'dim', url: 'https://dijitalislemmerkezi.com', color: '#00aeef', logo: '/images/logo.png' },
+  { key: 'digital', url: 'https://deventdigital.com', color: '#e0334c', logo: '/images/logo.png' },
+  { key: 'vocal', url: 'https://vocal-dijital.com', color: '#8e44ad', logo: '/images/vocal-logo.png' },
 ];
 
 export default function OnlineServices() {
@@ -44,9 +44,9 @@ export default function OnlineServices() {
               style={{ '--platform-color': p.color }}
             >
               <div className="platform-card__logo-area">
-                <img src={p.logo} alt={p.label} className={`platform-card__logo${p.key === 'vocal' ? ' platform-card__logo--vocal' : ''}`} />
+                <img src={p.logo} alt={t(`online.${p.key}.name`)} className={`platform-card__logo${p.key === 'vocal' ? ' platform-card__logo--vocal' : ''}`} />
               </div>
-              <h3 className="platform-card__name">{p.label}</h3>
+              <h3 className="platform-card__name">{t(`online.${p.key}.name`)}</h3>
               <span className="platform-card__domain">{t(`online.${p.key}.domain`)}</span>
               <p className="platform-card__desc">{t(`online.${p.key}.desc`)}</p>
               <span className="platform-card__arrow">→</span>

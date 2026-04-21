@@ -9,33 +9,12 @@ export const translations = {
     'nav.digitalCenter': 'Dijital İşlem Merkezi',
     'nav.hotelCenter': 'Otel Teklif Platformu',
 
-    // Hero
-    'hero.title1': 'Değişimin',
-    'hero.titleAccent': 'Gücü',
-    'hero.title2': '',
-    'hero.desc': '',
-    'hero.cta': '',
-
-    // LinkedIn Cards
-    'linkedin.title': 'Son Gelişmeler',
-    'linkedin.readMore': "LinkedIn'de oku →",
-    'linkedin.post1.text': 'D Event olarak, Türk Tıbbi Onkoloji Derneği Ulusal Kongresi\'ni bu yıl da başarıyla tamamladık. 2.500+ katılımcı, 40+ oturum.',
-    'linkedin.post1.date': '15 Mart 2026',
-    'linkedin.post2.text': 'Dijital İşlem Merkezi platformumuz ile etkinlik kayıt süreçlerinizi %60 daha hızlı yönetin. Yeni özelliklerimizi keşfedin.',
-    'linkedin.post2.date': '8 Mart 2026',
-
     // About
     'about.title': 'Hakkımızda',
     'about.p1': '2012 yılından bu yana kongre ve etkinlik sektöründe fark yaratmaya devam ediyoruz.',
     'about.p2': 'Ulusal ve uluslararası tüm kongre, etkinlik ve toplantılar için kayıt, konaklama, sponsorluk yönetimi, lojistik, operasyonel ve yaratıcı tasarım hizmetlerini tek merkezden sunmaktayız.',
     'about.p3': 'Kongre ve etkinlik sektöründe uzun yıllar deneyime sahip profesyonel ekibimiz, global firmalar, uluslararası kurumsal markalar ve Türkiye\'nin önde gelen sivil toplum kuruluşları ile sürdürülebilir iş birlikleri yürütmektedir.',
     'about.p4': 'Her projede aynı titizlikle çalışır, her detayı önceden planlar, başarıyla sonuçlandırırız.',
-    'about.vision': 'Toplantı, etkinlik ve kongre alanlarında global bir referans noktası olmak.',
-    'about.mission': 'Doğru zamanda, doğru yerde, doğru ekiple kaliteden ödün vermeden en iyi hizmeti vermek.',
-    'about.values': 'Müşteri odaklılık · Doğruluk · İnsana saygı · Takım çalışması',
-    'about.visionLabel': 'Vizyonumuz',
-    'about.missionLabel': 'Misyonumuz',
-    'about.valuesLabel': 'Değerlerimiz',
 
     // Services
     'services.title': 'Kongre & Etkinlik Yönetimi',
@@ -74,9 +53,6 @@ export const translations = {
     'online.vocal.name': 'Vocal Digital Agency',
     'online.vocal.domain': 'vocal-dijital.com',
     'online.vocal.desc': 'Yapay zeka destekli web sitesi tasarımı, görsel tasarım ve video tasarım platformu.',
-    'online.iata.name': 'Seyahat Bileti Acentası',
-    'online.iata.domain': 'vocal-dijital.com',
-    'online.iata.desc': 'IATA akreditasyonlu uçak bileti satış ve seyahat hizmetleri.',
 
     // Timeline / Journey
     'tl.title': 'Yolculuğumuz',
@@ -99,27 +75,11 @@ export const translations = {
 
     // Contact
     'contact.title': 'İletişim',
-    'contact.tagline': 'Bir sonraki projeniz için konuşalım.',
     'contact.company': 'D Event Turizm Organizasyon Hizmetleri A.Ş.',
     'contact.address': 'İçerenköy Mah. Çayır Cad. No:5 Bay Plaza Kat:12\n34752 Ataşehir / İstanbul — TÜRKİYE',
     'contact.phone': '+90 216 573 18 36',
     'contact.email': 'info@devent.com.tr',
     'contact.web': 'devent.com.tr',
-    'contact.form.name': 'Ad Soyad',
-    'contact.form.namePh': 'Adınız Soyadınız',
-    'contact.form.email': 'E-posta',
-    'contact.form.emailPh': 'ornek@email.com',
-    'contact.form.phone': 'Telefon',
-    'contact.form.phonePh': '+90 (___) ___ __ __',
-    'contact.form.company': 'Şirket / Kurum Adı',
-    'contact.form.companyPh': 'Şirketinizin adı',
-    'contact.form.eventType': 'Etkinlik Türü',
-    'contact.form.eventTypes': ['Kongre', 'Sempozyum', 'Kurumsal Etkinlik', 'Lansman', 'Gala', 'Diğer'],
-    'contact.form.eventTypePh': 'Etkinlik türü seçin',
-    'contact.form.message': 'Mesajınız',
-    'contact.form.messagePh': 'Planladığınız organizasyon hakkında bilgi verin...',
-    'contact.form.submit': 'Gönder',
-    'contact.memberships': 'Üyeliklerimiz',
 
     // Cookie & KVKK
     'cookie.title': 'Çerez ve Gizlilik Politikası',
@@ -139,7 +99,6 @@ export const translations = {
     'cookie.always': 'Her Zaman Aktif',
 
     // Footer
-    'footer.desc': 'Değişimin\nGücü.',
     'footer.col1': 'Şirket',
     'footer.col2': 'Platformlar',
     'footer.col3': 'Yasal',
@@ -149,23 +108,11 @@ export const translations = {
     'footer.terms': 'Kullanım Koşulları',
     'footer.madeIn': 'İstanbul',
     'footer.credit': 'Sevgiyle yapıldı,',
-    'footer.company': 'Devent Turizm Organizasyon Hizmetleri A.Ş.',
+    'footer.company': 'D Event Turizm Organizasyon Hizmetleri A.Ş.',
 
-    // References (kept for stats section)
+    // References
     'ref.title': 'Rakamlarla D Event',
     'ref.desc': 'Kuruluşumuzdan bugüne paydaşlarımızın bize duyduğu güvenin niceliksel özeti.',
-    'ref.total': 'Toplam Proje',
-    'ref.congress': 'Kongre & Sempozyum',
-    'ref.events': 'Kurumsal Etkinlik',
-    'ref.team': 'Uzman Kadro',
-    'ref.international': 'Uluslararası Proje',
-    'ref.cities': 'Farklı Ülke ve Şehirler',
-
-    // Partners
-    'partners.kultur': 'T.C. Kültür ve Turizm Bakanlığı',
-    'partners.tursab': 'TÜRSAB',
-    'partners.icvb': 'ICVB Istanbul',
-    'partners.site': 'SITE Turkey',
   },
 
   en: {
@@ -178,33 +125,12 @@ export const translations = {
     'nav.digitalCenter': 'Digital Center',
     'nav.hotelCenter': 'Hotel Offer Platform',
 
-    // Hero
-    'hero.title1': 'The Power',
-    'hero.titleAccent': 'of Change',
-    'hero.title2': '',
-    'hero.desc': '',
-    'hero.cta': '',
-
-    // LinkedIn Cards
-    'linkedin.title': 'Latest Updates',
-    'linkedin.readMore': 'Read on LinkedIn →',
-    'linkedin.post1.text': 'As D Event, we have successfully completed the Turkish Society of Medical Oncology National Congress once again. 2,500+ participants, 40+ sessions.',
-    'linkedin.post1.date': 'March 15, 2026',
-    'linkedin.post2.text': 'Manage your event registration processes 60% faster with our Digital Center platform. Discover our new features.',
-    'linkedin.post2.date': 'March 8, 2026',
-
     // About
     'about.title': 'About Us',
     'about.p1': 'We have been making a difference in the congress and event sector since 2012.',
     'about.p2': 'We provide registration, accommodation, sponsorship management, logistics, operational, and creative design services from a single center for all national and international congresses, events, and meetings.',
     'about.p3': 'Our professional team with years of experience in the congress and event sector maintains sustainable partnerships with global companies, international corporate brands, and Turkey\'s leading civil society organizations.',
     'about.p4': 'We work with the same precision on every project, plan every detail in advance, and deliver successful outcomes.',
-    'about.vision': 'To become a global reference point in meetings, events, and congresses.',
-    'about.mission': 'The best service, at the right time, in the right place, with the right team, without compromising on quality.',
-    'about.values': 'Client focus · Integrity · Respect for people · Teamwork',
-    'about.visionLabel': 'Our Vision',
-    'about.missionLabel': 'Our Mission',
-    'about.valuesLabel': 'Our Values',
 
     // Services
     'services.title': 'Congress & Event Management',
@@ -243,9 +169,6 @@ export const translations = {
     'online.vocal.name': 'Vocal Digital Agency',
     'online.vocal.domain': 'vocal-dijital.com',
     'online.vocal.desc': 'AI-powered website design, visual design, and video production platform.',
-    'online.iata.name': 'Travel Ticketing Agency',
-    'online.iata.domain': 'vocal-dijital.com',
-    'online.iata.desc': 'IATA accredited airline ticketing and travel services.',
 
     // Timeline / Journey
     'tl.title': 'Our Journey',
@@ -268,27 +191,11 @@ export const translations = {
 
     // Contact
     'contact.title': 'Contact',
-    'contact.tagline': "Let's talk about your next project.",
     'contact.company': 'D Event Tourism Organization Services Inc.',
     'contact.address': 'Icerenkoy Mah. Cayir Cad. No:5 Bay Plaza Floor:12\n34752 Atasehir / Istanbul — TURKEY',
     'contact.phone': '+90 216 573 18 36',
     'contact.email': 'info@devent.com.tr',
     'contact.web': 'devent.com.tr',
-    'contact.form.name': 'Full Name',
-    'contact.form.namePh': 'Your full name',
-    'contact.form.email': 'Email',
-    'contact.form.emailPh': 'executive@company.com',
-    'contact.form.phone': 'Phone',
-    'contact.form.phonePh': '+90 (___) ___ __ __',
-    'contact.form.company': 'Company / Organization',
-    'contact.form.companyPh': 'Your company name',
-    'contact.form.eventType': 'Event Type',
-    'contact.form.eventTypes': ['Congress', 'Symposium', 'Corporate Event', 'Launch', 'Gala', 'Other'],
-    'contact.form.eventTypePh': 'Select event type',
-    'contact.form.message': 'Message',
-    'contact.form.messagePh': 'Tell us about your planned organization...',
-    'contact.form.submit': 'Send',
-    'contact.memberships': 'Memberships',
 
     // Cookie & KVKK
     'cookie.title': 'Cookie & Privacy Policy',
@@ -308,7 +215,6 @@ export const translations = {
     'cookie.always': 'Always Active',
 
     // Footer
-    'footer.desc': 'The Power\nof Change.',
     'footer.col1': 'Company',
     'footer.col2': 'Platforms',
     'footer.col3': 'Legal',
@@ -318,22 +224,10 @@ export const translations = {
     'footer.terms': 'Terms of Use',
     'footer.madeIn': 'Istanbul',
     'footer.credit': 'Made with',
-    'footer.company': 'Devent Tourism Organization Services Inc.',
+    'footer.company': 'D Event Tourism Organization Services Inc.',
 
     // References
     'ref.title': 'D Event in Numbers',
     'ref.desc': 'A quantitative reflection of the trust our partners have placed in us.',
-    'ref.total': 'Total Projects',
-    'ref.congress': 'Congresses & Symposia',
-    'ref.events': 'Corporate Events',
-    'ref.team': 'Expert Team Members',
-    'ref.international': 'International Projects',
-    'ref.cities': 'Global Destinations',
-
-    // Partners
-    'partners.kultur': 'Republic of Turkey Ministry of Culture and Tourism',
-    'partners.tursab': 'TÜRSAB',
-    'partners.icvb': 'ICVB Istanbul',
-    'partners.site': 'SITE Turkey',
   },
 };

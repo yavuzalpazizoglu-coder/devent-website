@@ -21,7 +21,7 @@ const POSTS = [
     tag: '#Dijitalleşme',
   },
   {
-    id: '7439211973914828800',
+    id: '7438500000000000001',
     text: {
       tr: 'Otel Teklif Platformu ile kongre organizasyonlarınız için en uygun otelleri keşfedin.',
       en: 'Discover the best hotels for your congress events with our Hotel Proposal Platform.',
