@@ -2,8 +2,8 @@ export const translations = {
   tr: {
     // Navbar
     'nav.about': 'Hakkımızda',
-    'nav.services': 'Kongre & Etkinlik Yönetimi',
-    'nav.online': 'Online Servisler',
+    'nav.services': 'Kongre – Etkinlik Yönetimi',
+    'nav.online': 'Dijital Servisler',
     'nav.journey': 'Yolculuğumuz',
     'nav.contact': 'İletişim',
     'nav.digitalCenter': 'Dijital İşlem Merkezi',
@@ -118,8 +118,8 @@ export const translations = {
   en: {
     // Navbar
     'nav.about': 'About Us',
-    'nav.services': 'Congress & Event Management',
-    'nav.online': 'Online Services',
+    'nav.services': 'Congress – Event Management',
+    'nav.online': 'Digital Services',
     'nav.journey': 'Our Journey',
     'nav.contact': 'Contact',
     'nav.digitalCenter': 'Digital Center',
