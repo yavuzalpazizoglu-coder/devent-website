@@ -139,7 +139,7 @@ export const translations = {
     'cookie.always': 'Her Zaman Aktif',
 
     // Footer
-    'footer.desc': 'Her Zaman\nPlanladığınız\nGibi.',
+    'footer.desc': 'Değişimin\nGücü.',
     'footer.col1': 'Şirket',
     'footer.col2': 'Platformlar',
     'footer.col3': 'Yasal',
@@ -308,7 +308,7 @@ export const translations = {
     'cookie.always': 'Always Active',
 
     // Footer
-    'footer.desc': 'Always\nAs You\nPlanned.',
+    'footer.desc': 'The Power\nof Change.',
     'footer.col1': 'Company',
     'footer.col2': 'Platforms',
     'footer.col3': 'Legal',
