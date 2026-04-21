@@ -64,26 +64,6 @@ export default function Hero() {
               </>
             )}
           </motion.h1>
-
-          <motion.p
-            className="hero__desc"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {t('hero.desc')}
-          </motion.p>
-
-          <motion.a
-            href="#services"
-            className="hero__cta btn-primary"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.1 }}
-            onClick={(e) => { e.preventDefault(); document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' }); }}
-          >
-            {t('hero.cta')}
-          </motion.a>
         </div>
       </div>
 

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useLang } from '../context/LanguageContext';
@@ -21,12 +20,6 @@ const socialLinks = [
 export default function Contact() {
   const { t } = useLang();
   const [ref, inView] = useInView({ threshold: 0.05, triggerOnce: true });
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', company: '', eventType: '', message: '' });
-
-  const handleChange = (e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
-  const handleSubmit = (e) => { e.preventDefault(); };
-
-  const eventTypes = t('contact.form.eventTypes') || [];
 
   return (
     <section id="contact" className="contact section-padding">
@@ -40,101 +33,51 @@ export default function Contact() {
           <h2 className="section-title" style={{ textAlign: 'center' }}>{t('contact.title')}</h2>
         </motion.div>
 
-        <div className="contact__layout">
-          {/* Info */}
-          <motion.div
-            className="contact__info"
-            initial={{ opacity: 0, x: -20 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.15, duration: 0.6 }}
-          >
-            <h3 className="contact__company">{t('contact.company')}</h3>
-            <div className="contact__details">
-              <div className="contact__detail">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>{t('contact.address')}</span>
-              </div>
-              <div className="contact__detail">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                <a href="tel:+902165731836">{t('contact.phone')}</a>
-              </div>
-              <div className="contact__detail">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-                <a href="mailto:info@devent.com.tr">{t('contact.email')}</a>
-              </div>
-              <div className="contact__detail">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-                <a href="https://devent.com.tr" target="_blank" rel="noopener noreferrer">{t('contact.web')}</a>
-              </div>
+        <motion.div
+          className="contact__info contact__info--centered"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.15, duration: 0.6 }}
+        >
+          <h3 className="contact__company">{t('contact.company')}</h3>
+          <div className="contact__details">
+            <div className="contact__detail">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>{t('contact.address')}</span>
             </div>
+            <div className="contact__detail">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <a href="tel:+902165731836">{t('contact.phone')}</a>
+            </div>
+            <div className="contact__detail">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+              <a href="mailto:info@devent.com.tr">{t('contact.email')}</a>
+            </div>
+            <div className="contact__detail">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+              <a href="https://devent.com.tr" target="_blank" rel="noopener noreferrer">{t('contact.web')}</a>
+            </div>
+          </div>
 
-            {/* Social with brand colors */}
-            <div className="contact__social">
-              {socialLinks.map(s => (
-                <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="contact__social-link" style={{ '--social-color': s.color }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d={s.icon} /></svg>
-                  <span>{s.name}</span>
+          <div className="contact__social">
+            {socialLinks.map(s => (
+              <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="contact__social-link" style={{ '--social-color': s.color }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d={s.icon} /></svg>
+                <span>{s.name}</span>
+              </a>
+            ))}
+          </div>
+
+          <div className="contact__memberships-inline">
+            <div className="contact__memberships-logos">
+              {memberships.map(m => (
+                <a key={m.name} href={m.url} target="_blank" rel="noopener noreferrer" className="contact__membership-item" title={m.name}>
+                  <img src={m.logo} alt={m.name} loading="lazy" />
                 </a>
               ))}
             </div>
-
-            {/* Memberships inline */}
-            <div className="contact__memberships-inline">
-              <div className="contact__memberships-logos">
-                {memberships.map(m => (
-                  <a key={m.name} href={m.url} target="_blank" rel="noopener noreferrer" className="contact__membership-item" title={m.name}>
-                    <img src={m.logo} alt={m.name} loading="lazy" />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Form */}
-          <motion.form
-            className="contact__form"
-            onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: 20 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            <div className="contact__form-row">
-              <div className="contact__field">
-                <label>{t('contact.form.name')}</label>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder={t('contact.form.namePh')} />
-              </div>
-              <div className="contact__field">
-                <label>{t('contact.form.email')}</label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder={t('contact.form.emailPh')} />
-              </div>
-            </div>
-            <div className="contact__form-row">
-              <div className="contact__field">
-                <label>{t('contact.form.phone')}</label>
-                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder={t('contact.form.phonePh')} />
-              </div>
-              <div className="contact__field">
-                <label>{t('contact.form.company')}</label>
-                <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder={t('contact.form.companyPh')} />
-              </div>
-            </div>
-            <div className="contact__field">
-              <label>{t('contact.form.eventType')}</label>
-              <select name="eventType" value={formData.eventType} onChange={handleChange}>
-                <option value="">{t('contact.form.eventTypePh')}</option>
-                {Array.isArray(eventTypes) && eventTypes.map(type => (
-                  <option key={type} value={type}>{type}</option>
-                ))}
-              </select>
-            </div>
-            <div className="contact__field">
-              <label>{t('contact.form.message')}</label>
-              <textarea name="message" rows="3" value={formData.message} onChange={handleChange} placeholder={t('contact.form.messagePh')} />
-            </div>
-            <button type="submit" className="btn-primary contact__submit">{t('contact.form.submit')}</button>
-          </motion.form>
-        </div>
-
+          </div>
+        </motion.div>
       </div>
     </section>
   );
