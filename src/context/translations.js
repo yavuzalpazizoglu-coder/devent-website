@@ -15,6 +15,12 @@ export const translations = {
     'about.p2': 'Ulusal ve uluslararası tüm kongre, etkinlik ve toplantılar için kayıt, konaklama, sponsorluk yönetimi, lojistik, operasyonel ve yaratıcı tasarım hizmetlerini tek merkezden sunmaktayız.',
     'about.p3': 'Kongre ve etkinlik sektöründe uzun yıllar deneyime sahip profesyonel ekibimiz, global firmalar, uluslararası kurumsal markalar ve Türkiye\'nin önde gelen sivil toplum kuruluşları ile sürdürülebilir iş birlikleri yürütmektedir.',
     'about.p4': 'Her projede aynı titizlikle çalışır, her detayı önceden planlar, başarıyla sonuçlandırırız.',
+    'about.visionLabel': 'VİZYONUMUZ',
+    'about.vision': 'Toplantı, etkinlik ve kongre alanlarında global bir referans noktası olmak.',
+    'about.missionLabel': 'MİSYONUMUZ',
+    'about.mission': 'Doğru zamanda, doğru yerde, doğru ekiple kaliteden ödün vermeden en iyi hizmeti vermek.',
+    'about.valuesLabel': 'DEĞERLERİMİZ',
+    'about.values': 'Müşteri odaklılık · Doğruluk · İnsana saygı · Takım çalışması',
 
     // Services
     'services.title': 'Kongre – Etkinlik Yönetimi',
@@ -131,6 +137,12 @@ export const translations = {
     'about.p2': 'We provide registration, accommodation, sponsorship management, logistics, operational, and creative design services from a single center for all national and international congresses, events, and meetings.',
     'about.p3': 'Our professional team with years of experience in the congress and event sector maintains sustainable partnerships with global companies, international corporate brands, and Turkey\'s leading civil society organizations.',
     'about.p4': 'We work with the same precision on every project, plan every detail in advance, and deliver successful outcomes.',
+    'about.visionLabel': 'OUR VISION',
+    'about.vision': 'To become a global reference point in meetings, events, and congress management.',
+    'about.missionLabel': 'OUR MISSION',
+    'about.mission': 'To deliver the best service at the right time, in the right place, with the right team — without compromising on quality.',
+    'about.valuesLabel': 'OUR VALUES',
+    'about.values': 'Customer Focus · Integrity · Respect for People · Teamwork',
 
     // Services
     'services.title': 'Congress – Event Management',
